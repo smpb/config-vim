@@ -129,6 +129,7 @@ if &t_Co >= 256 || has("gui_running")
   "set guioptions-=r  "remove all scroll bars
   "set guioptions-=b  "remove all scroll bars
 
+  set guifont=Input\ Mono:h13
   set background=dark
     colorscheme solarized
 endif
@@ -186,9 +187,12 @@ nmap E :!perl -m %<CR>
 nmap Q :!perl -d %<CR>
 
 
-"========[ POWERLINE SETTINGS ]========
+"========[ AIRLINE SETTINGS ]========
 
-let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_min_count = 2
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 
 "========[ NERDTREE SETTINGS ]========

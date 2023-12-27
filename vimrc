@@ -200,8 +200,3 @@ nmap <Leader>p :NERDTree<CR>
 
 nmap <Leader>l :TagbarToggle<CR>
 let g:tagbar_ctags_bin = '/opt/homebrew/bin/ctags'
-
-"========[ SYNTASTIC SETTINGS ]========
-
-"let g:perl_interpreter = '/Users/smpb/perl5/perlbrew/perls/current/bin/perl'
-

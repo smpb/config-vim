@@ -122,7 +122,7 @@ nnoremap <S-Space>  <PageUp>
 
 "========[ GUI OPTIONS ]========
 
-if &t_Co >= 256 || has("gui_running")
+if &t_Co >= 512 || has("gui_running")
   set guioptions-=T  "remove toolbar
   "set guioptions-=m  "remove all scroll bars
   "set guioptions-=l  "remove all scroll bars
@@ -131,7 +131,7 @@ if &t_Co >= 256 || has("gui_running")
 
   set guifont=Input\ Mono:h13
   set background=dark
-    colorscheme solarized
+  colorscheme solarized
 endif
 
 

@@ -128,6 +128,9 @@ if &t_Co >= 256 || has("gui_running")
   "set guioptions-=l  "remove all scroll bars
   "set guioptions-=r  "remove all scroll bars
   "set guioptions-=b  "remove all scroll bars
+
+  set background=dark
+    colorscheme solarized
 endif
 
 

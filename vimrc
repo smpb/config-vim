@@ -130,8 +130,9 @@ if &t_Co >= 512 || has("gui_running")
   "set guioptions-=b  "remove all scroll bars
 
   set guifont=Input\ Mono:h13
-  set background=dark
+
   colorscheme solarized
+  set background=dark
 endif
 
 
@@ -204,3 +205,14 @@ nmap <Leader>p :NERDTree<CR>
 
 nmap <Leader>l :TagbarToggle<CR>
 let g:tagbar_ctags_bin = '/opt/homebrew/bin/ctags'
+
+
+"========[ GIT-GUTTER SETTINGS ]========
+
+highlight clear SignColumn
+highlight SignColumn            ctermbg=black
+highlight GitGutterAdd          ctermfg=green   guifg=darkgreen
+highlight GitGutterChange       ctermfg=yellow  guifg=darkyellow
+highlight GitGutterDelete       ctermfg=red     guifg=darkred
+highlight GitGutterChangeDelete ctermfg=yellow  guifg=darkyellow
+

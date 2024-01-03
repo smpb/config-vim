@@ -129,7 +129,7 @@ if &t_Co >= 512 || has("gui_running")
   "set guioptions-=r  "remove all scroll bars
   "set guioptions-=b  "remove all scroll bars
 
-  set guifont=Input\ Mono:h13
+  set guifont=Input\ Mono:h14
 
   colorscheme solarized
   set background=dark

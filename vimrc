@@ -135,8 +135,10 @@ if &t_Co >= 512 || has("gui_running")
 
   set guifont=Input\ Mono:h14
 
-  colorscheme solarized
+  let g:solarized_italic=0
   let g:airline_theme="solarized"
+
+  colorscheme solarized
   set background=dark
 endif
 

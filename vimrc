@@ -122,6 +122,10 @@ nnoremap <S-Space>  <PageUp>
 
 "========[ GUI OPTIONS ]========
 
+if has('termguicolors')
+  set termguicolors
+endif
+
 if &t_Co >= 512 || has("gui_running")
   set guioptions-=T  "remove toolbar
   "set guioptions-=m  "remove all scroll bars

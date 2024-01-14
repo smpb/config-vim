@@ -122,11 +122,7 @@ nnoremap <S-Space>  <PageUp>
 
 "========[ GUI OPTIONS ]========
 
-if has('termguicolors')
-  set termguicolors
-endif
-
-if &t_Co >= 512 || has("gui_running")
+if has("gui_running")
   set guioptions-=T  "remove toolbar
   "set guioptions-=m  "remove all scroll bars
   "set guioptions-=l  "remove all scroll bars
@@ -134,12 +130,17 @@ if &t_Co >= 512 || has("gui_running")
   "set guioptions-=b  "remove all scroll bars
 
   set guifont=Input\ Mono:h14
+endif
 
+if &t_Co >= 256 || has("gui_running")
   let g:solarized_italic=0
+  let g:solarized_termcolors=256
   let g:airline_theme="solarized"
 
   colorscheme solarized
   set background=dark
+elseif has('termguicolors')
+  set termguicolors
 endif
 
 

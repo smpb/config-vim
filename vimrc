@@ -212,7 +212,6 @@ nmap <Leader>p :NERDTree<CR>
 "========[ TAGBAR SETTINGS ]========
 
 nmap <Leader>l :TagbarToggle<CR>
-let g:tagbar_ctags_bin = '/opt/homebrew/bin/ctags'
 
 
 "========[ GIT-GUTTER SETTINGS ]========

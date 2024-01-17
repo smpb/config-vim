@@ -203,6 +203,12 @@ nmap E :!perl -m %<CR>
 nmap Q :!perl -d %<CR>
 
 
+"========[ SHELL FILES ]========
+
+" my *.zshrc files are, by default, zsh files
+autocmd BufRead,BufNewFile *.zshrc setfiletype zsh
+
+
 "========[ AIRLINE SETTINGS ]========
 
 let g:airline_powerline_fonts = 1

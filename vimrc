@@ -144,6 +144,13 @@ elseif has('termguicolors')
 endif
 
 
+"========[ TERMINAL SETTINGS ]========
+
+" open terminal below all splits
+cabbrev bterm bo term
+map <Leader>t :bterm ++close<CR>
+
+
 "========[ FILE SETTINGS ]========
 
 " autosave and autoload file views (to maintain folds)

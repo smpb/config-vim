@@ -137,8 +137,8 @@ if &t_Co >= 256 || has("gui_running")
   let g:solarized_termcolors=256
   let g:airline_theme="solarized"
 
-  colorscheme solarized
   set background=dark
+  colorscheme solarized
 elseif has('termguicolors')
   set termguicolors
 endif

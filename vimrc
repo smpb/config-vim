@@ -130,19 +130,15 @@ if has("gui_running")
   "set guioptions-=b  "remove all scroll bars
 
   set guifont=Input\ Mono:h14
+else
+  let g:onedark_termcolors=16
 endif
 
-if &t_Co >= 256 || has("gui_running")
-  let g:solarized_italic=0
-  let g:solarized_termcolors=256
-  let g:airline_theme="solarized"
+let g:onedark_terminal_italics=0
+let g:airline_theme="onedark"
 
-  set background=dark
-  colorscheme solarized
-elseif has('termguicolors')
-  set termguicolors
-endif
-
+set background=dark
+colorscheme onedark
 
 "========[ TERMINAL SETTINGS ]========
 
@@ -225,14 +221,4 @@ nmap <Leader>p :NERDTree<CR>
 "========[ TAGBAR SETTINGS ]========
 
 nmap <Leader>l :TagbarToggle<CR>
-
-
-"========[ GIT-GUTTER SETTINGS ]========
-
-highlight clear SignColumn
-highlight SignColumn            ctermbg=black
-highlight GitGutterAdd          ctermfg=green   guifg=darkgreen
-highlight GitGutterChange       ctermfg=yellow  guifg=darkyellow
-highlight GitGutterDelete       ctermfg=red     guifg=darkred
-highlight GitGutterChangeDelete ctermfg=yellow  guifg=darkyellow
 

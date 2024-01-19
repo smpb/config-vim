@@ -106,6 +106,10 @@ vnoremap <TAB> %
 nmap <C-TAB>    :tabnext<CR>
 nmap <C-S-TAB>  :tabprevious<CR>
 
+" Move to the next/previous buffer
+nmap <leader>l  :bnext<CR>
+nmap <leader>h  :bprevious<CR>
+
 " 'very magic' mode for regular expression patterns
 " ie, regex work almost exactly like in Perl
 nnoremap / /\v
@@ -215,10 +219,10 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 "========[ NERDTREE SETTINGS ]========
 
-nmap <Leader>p :NERDTree<CR>
+nmap <Leader>. :NERDTree<CR>
 
 
 "========[ TAGBAR SETTINGS ]========
 
-nmap <Leader>l :TagbarToggle<CR>
+nmap <Leader>; :TagbarToggle<CR>
 

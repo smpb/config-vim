@@ -152,6 +152,9 @@ augroup NumberToggle
   autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 augroup END
 
+" toggle the numbers on and off
+command NumbersToggle if &nu | set nonu | set nornu | else | set nu | set rnu | endif
+map <Leader>n :NumbersToggle<CR>
 
 "========[ TERMINAL SETTINGS ]========
 

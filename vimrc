@@ -172,13 +172,6 @@ filetype indent on  " and ident rules for specific file types
 
 syntax enable       " switch syntax highlighting on
 
-" folding
-"set foldcolumn=1
-"set foldmethod=syntax
-
-" open all folds by default
-"autocmd BufWinEnter * normal zR
-
 
 "========[ MARKDOWN FILES SETTINGS ]========
 

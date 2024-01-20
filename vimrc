@@ -173,6 +173,12 @@ filetype indent on  " and ident rules for specific file types
 syntax enable       " switch syntax highlighting on
 
 
+"========[ GOLANG FILES ]========
+
+" use tabs in Go files
+autocmd FileType go setlocal noexpandtab
+
+
 "========[ MARKDOWN FILES SETTINGS ]========
 
 " my *.md files are, by default, Markdown files

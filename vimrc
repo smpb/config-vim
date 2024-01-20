@@ -219,7 +219,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 "========[ NERDTREE SETTINGS ]========
 
-nmap <Leader>. :NERDTree<CR>
+nmap <Leader>. :NERDTreeToggle<CR>
 
 
 "========[ TAGBAR SETTINGS ]========

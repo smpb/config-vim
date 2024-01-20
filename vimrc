@@ -1,5 +1,5 @@
 " set Pathogen to load all scripts on ~/vim/bundle/
-" https://github.com/tpope/vim-pathogen
+"  https://github.com/tpope/vim-pathogen
 execute pathogen#infect()
 
 
@@ -8,8 +8,7 @@ execute pathogen#infect()
 set nocompatible
 set ttyfast
 set encoding=utf-8
-set fileformats=unix,mac,dos  " handle Mac and DOS line-endings
-                              " but prefer Unix endings
+set fileformats=unix,mac,dos  " handle Mac and DOS line-endings but prefer Unix endings
 
 " show visual bell instead of beeping
 " don't beep on error
@@ -37,13 +36,13 @@ set smartindent
 "set textwidth=120
 "set wrap
 
-" Make naughty characters visible...
-" (uBB is right double angle, uB7 is middle dot)
+" make naughty characters visible...
+"  (uBB is right double angle, uB7 is middle dot)
 exec "set lcs=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 
 augroup VisibleNaughtiness
-  " Remove ALL autocommands for the current group,
-  " to ensure that Vim includes the autocommands only once
+  " remove ALL autocommands for the current group,
+  "  to ensure that Vim includes the autocommands only once
   autocmd!
 
   autocmd BufEnter  *     set list
@@ -53,11 +52,11 @@ augroup VisibleNaughtiness
 augroup END
 
 " backspace allowed over autoindent,
-" over EOL - joining lines, over the start of insert
+"  over EOL - joining lines, over the start of insert
 set backspace=indent,eol,start
 
 " autocomplete commands with <Tab>
-" present more than one match in a list, complete with longest match
+"  present more than one match in a list, complete with longest match
 set wildmenu
 set wildmode=list:longest,full  " show list of completions:
                                 " and complete as much as possible,
@@ -94,8 +93,8 @@ nmap <silent> <BS> :nohlsearch<CR>
 "========[ GENERIC KEY MAPPINGS ]========
 
 " remap leader key - user commands
-" Example, >:map <Leader>A  oanother line<Esc>
-" works like, >:map ,A  oanother line<Esc>
+"  example,     >:map <Leader>A  oanother line<Esc>
+"  works like,  >:map ,A  oanother line<Esc>
 let mapleader=","
 
 " remap bracket matching to the Tab key
@@ -106,7 +105,7 @@ vnoremap <TAB> %
 nmap <C-TAB>    :tabnext<CR>
 nmap <C-S-TAB>  :tabprevious<CR>
 
-" Move to the next/previous buffer
+" move to the next/previous buffer
 nmap <leader>l  :bnext<CR>
 nmap <leader>h  :bprevious<CR>
 
@@ -115,11 +114,11 @@ nmap <leader>h  :bprevious<CR>
 nnoremap / /\v
 vnoremap / /\v
 
-" Make backspace work as expected in visual modes,
-" i.e. delete the selected text
+" make backspace work as expected in visual modes,
+"  i.e. delete the selected text
 vmap <BS> x
 
-" Use (shift+)space to jump through the page (like browsers do)
+" use (shift+)space to jump through the page (like browsers do)
 nnoremap <Space>    <PageDown>
 nnoremap <S-Space>  <PageUp>
 
@@ -202,13 +201,13 @@ autocmd BufNewFile,BufRead *.t set filetype=perl
 autocmd BufNewFile,BufRead *.bml set filetype=perl tabstop=4 shiftwidth=4
 
 
-" Execute Perl file...
+" execute Perl file...
 nmap W :!clear;echo;echo;perl %;echo;echo;echo<CR>
 
-" Execute Perl file (output to pager)...
+" execute Perl file (output to pager)...
 nmap E :!perl -m %<CR>
 
-" Execute Perl file (in debugger)...
+" execute Perl file (in debugger)...
 nmap Q :!perl -d %<CR>
 
 

@@ -194,22 +194,9 @@ autocmd BufRead,BufNewFile *.m setfiletype objc
 
 "========[ PERL FILES SETTINGS ]========
 
-"let perl_fold = 1             " syntax folding for Perl files
-"let perl_nofold_packages = 1  " don't fold packages
-
 " these files are, by default, Perl files
-autocmd BufNewFile,BufRead *.t set filetype=perl
+autocmd BufNewFile,BufRead *.t   set filetype=perl
 autocmd BufNewFile,BufRead *.bml set filetype=perl tabstop=4 shiftwidth=4
-
-
-" execute Perl file...
-nmap W :!clear;echo;echo;perl %;echo;echo;echo<CR>
-
-" execute Perl file (output to pager)...
-nmap E :!perl -m %<CR>
-
-" execute Perl file (in debugger)...
-nmap Q :!perl -d %<CR>
 
 
 "========[ SHELL FILES ]========

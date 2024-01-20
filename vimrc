@@ -9,6 +9,7 @@ set nocompatible
 set ttyfast
 set encoding=utf-8
 set fileformats=unix,mac,dos  " handle Mac and DOS line-endings but prefer Unix endings
+set updatetime=500            " save to swap faster, helping plugins tracking changes
 
 " show visual bell instead of beeping
 " don't beep on error

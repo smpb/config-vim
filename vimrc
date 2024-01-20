@@ -144,6 +144,15 @@ let g:airline_theme="onedark"
 set background=dark
 colorscheme onedark
 
+" use relative line numbers when moving around in normal mode, but absolute ones in insert mode
+set number
+augroup NumberToggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
+
+
 "========[ TERMINAL SETTINGS ]========
 
 " open terminal below all splits

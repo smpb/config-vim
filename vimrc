@@ -180,7 +180,7 @@ syntax enable       " switch syntax highlighting on
 "autocmd BufWinEnter * normal zR
 
 
-"========[ MARKDOWN FILES ]========
+"========[ MARKDOWN FILES SETTINGS ]========
 
 " my *.md files are, by default, Markdown files
 autocmd BufRead,BufNewFile *.md setfiletype markdown

@@ -136,6 +136,11 @@ command NumbersToggle if &nu | set nonu | set nornu | else | set nu | set rnu | 
 " shortcut to toggle on and off all visual noise
 map <Leader>n :NumbersToggle<CR>:ListToggle<CR>
 
+" use rich colors when available
+if has('termguicolors')
+  set termguicolors
+endif
+
 if has("gui_running")
   set guioptions-=T  "remove toolbar
   "set guioptions-=m  "remove all scroll bars

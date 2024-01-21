@@ -1,3 +1,5 @@
+"========[ LOAD PLUGINS ]========
+
 " set Pathogen to load all scripts on ~/vim/bundle/
 "  https://github.com/tpope/vim-pathogen
 execute pathogen#infect()

@@ -21,3 +21,12 @@ Furthermore, the configuration files are meant to be symlinked in the home dir:
     ln -s ./path/to/config-vim/vimrc .vimrc
     ln -s ./path/to/config-vim/vim .vim
 
+## Neovim
+
+A basic Neovim configuration has been added for compatibility and testing of exclusive features and plugins. It still depends fully on the `.vimrc` in this repo.
+
+To activate:
+
+    cd
+    ln -s ./path/to/config-vim/nvim ~/.config/
+

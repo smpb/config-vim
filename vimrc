@@ -150,7 +150,12 @@ if has("gui_running")
 
   set guifont=Input\ Mono:h14
 else
-  let g:onedark_termcolors=16
+  " fix truecolor support inside tmux
+  "  - https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
+  if &term =~ '^\%(screen\|tmux\)'
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  endif
 endif
 
 let g:onedark_terminal_italics=0

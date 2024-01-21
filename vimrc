@@ -37,21 +37,6 @@ set smartindent
 "set textwidth=120
 "set wrap
 
-" make naughty characters visible...
-"  (uBB is right double angle, uB7 is middle dot)
-exec "set lcs=tab:\uBB\uBB,trail:\uB7,nbsp:~"
-
-augroup VisibleNaughtiness
-  " remove ALL autocommands for the current group,
-  "  to ensure that Vim includes the autocommands only once
-  autocmd!
-
-  autocmd BufEnter  *     set list
-  autocmd BufEnter  *     if !&modifiable
-  autocmd BufEnter  *       set nolist
-  autocmd BufEnter  *     endif
-augroup END
-
 " backspace allowed over autoindent,
 "  over EOL - joining lines, over the start of insert
 set backspace=indent,eol,start
@@ -126,6 +111,31 @@ nnoremap <S-Space>  <PageUp>
 
 "========[ GUI OPTIONS ]========
 
+" make whitespace characters visible
+set listchars=tab:\│\ ,trail:·,nbsp:~
+
+" toggle visible whitespace characters on and off
+command ListToggle if &modifiable | if &list | set nolist | else | set list | endif | endif
+
+augroup VisibleWhiteSpaces
+  autocmd!
+  autocmd BufEnter * ListToggle
+augroup END
+
+" use relative line numbers when moving around in normal mode, but absolute ones in insert mode
+set number
+augroup NumberToggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
+
+" toggle the numbers on and off
+command NumbersToggle if &nu | set nonu | set nornu | else | set nu | set rnu | endif
+
+" shortcut to toggle on and off all visual noise
+map <Leader>n :NumbersToggle<CR>:ListToggle<CR>
+
 if has("gui_running")
   set guioptions-=T  "remove toolbar
   "set guioptions-=m  "remove all scroll bars
@@ -143,18 +153,6 @@ let g:airline_theme="onedark"
 
 set background=dark
 colorscheme onedark
-
-" use relative line numbers when moving around in normal mode, but absolute ones in insert mode
-set number
-augroup NumberToggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
-  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
-augroup END
-
-" toggle the numbers on and off
-command NumbersToggle if &nu | set nonu | set nornu | else | set nu | set rnu | endif
-map <Leader>n :NumbersToggle<CR>
 
 "========[ TERMINAL SETTINGS ]========
 

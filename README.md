@@ -6,8 +6,8 @@ This repository includes my personal configurations for `vim`.
 
 By default, this is a macOS-centric setup. These are the expectations:
 
-- `ctags` was installed via [Homebrew](https://brew.sh) in `/opt/homebrew/bin/ctags`.
-- The font [Input Mono](https://input.djr.com) is available.
+- `ctags` is installed (easily done via [Homebrew](https://brew.sh)), and accessible via the user's `$PATH`.
+- The font [Input Mono](https://input.djr.com), patched with [Nerd Fonts](https://www.nerdfonts.com/), is installed in the system.
 
 ## Setup
 

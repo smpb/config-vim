@@ -14,6 +14,44 @@ vim.cmd([[
 ]])
 
 
+-- ========[ PLUGIN SETTINGS ]========
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+local lazyplugins = {
+  -- git
+  { 'airblade/vim-gitgutter' },
+
+  -- interface and color
+  { 'joshdick/onedark.vim' },
+  { 'vim-airline/vim-airline' },
+
+  -- code syntax and tags
+  { 'dense-analysis/ale' },
+  { 'preservim/tagbar' },
+
+  -- file management
+  { 'preservim/nerdtree' },
+}
+
+require('lazy').setup(lazyplugins, {
+  defaults = {
+    lazy = false,
+  },
+})
+
+
 -- ========[ NEOVIM SETTINGS ]========
 
 -- open terminal below all splits

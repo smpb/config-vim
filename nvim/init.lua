@@ -43,6 +43,15 @@ local lazyplugins = {
 
   -- file management
   { 'preservim/nerdtree' },
+
+  -- llm
+  {
+    "dustinblackman/oatmeal.nvim",
+    opts = {
+      backend = "ollama",
+      model = "codellama:latest",
+    },
+  },
 }
 
 require('lazy').setup(lazyplugins, {
@@ -56,6 +65,9 @@ require('lazy').setup(lazyplugins, {
 
 -- open terminal below all splits
 vim.api.nvim_set_keymap('n', '<Leader>t', ':split<BAR>terminal<CR><C-w>J:resize 15<CR>', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<Leader>o', ':Oatmeal<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<Leader>o', ':Oatmeal<CR>', { noremap = true, silent = true })
 
 
 -- ========[ NEOVIDE SETTINGS ]========

@@ -14,6 +14,12 @@ vim.cmd([[
 ]])
 
 
+-- ========[ NEOVIM SETTINGS ]========
+
+-- open terminal below all splits
+vim.api.nvim_set_keymap('n', '<Leader>t', ':split<BAR>terminal<CR><C-w>J:resize 15<CR>', { noremap = true, silent = true })
+
+
 -- ========[ NEOVIDE SETTINGS ]========
 
 -- allow the use of Cmd on macOS

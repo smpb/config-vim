@@ -192,6 +192,12 @@ syntax enable       " switch syntax highlighting on
 autocmd FileType go setlocal noexpandtab
 
 
+"========[ JENKINSFILE SETTINGS ]========
+
+" my *.Jenkinsfile files are, by default, Groovy files
+autocmd BufRead,BufNewFile *.Jenkinsfile setfiletype groovy
+
+
 "========[ MARKDOWN SETTINGS ]========
 
 " my *.md files are, by default, Markdown files

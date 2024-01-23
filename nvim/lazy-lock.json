@@ -1,5 +1,6 @@
 {
   "ale": { "branch": "master", "commit": "8922478a83cd06bfe5b82eb45279649adc4ec046" },
+  "ctrlp.vim": { "branch": "master", "commit": "7c972cb19c8544c681ca345c64ec39e04f4651cc" },
   "lazy.nvim": { "branch": "main", "commit": "28126922c9b54e35a192ac415788f202c3944c9f" },
   "nerdtree": { "branch": "master", "commit": "bc606c43e2d8ef0987d6d3d1ec8c17360a2e29d5" },
   "oatmeal.nvim": { "branch": "master", "commit": "efeca77819c136a4a93c8913f8d3601daf76abb4" },

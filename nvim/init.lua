@@ -45,6 +45,7 @@ local lazyplugins = {
   { 'tpope/vim-surround' },
 
   -- file management
+  { 'ctrlpvim/ctrlp.vim' },
   { 'preservim/nerdtree' },
 
   -- llm

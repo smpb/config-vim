@@ -41,6 +41,9 @@ local lazyplugins = {
   { 'dense-analysis/ale' },
   { 'preservim/tagbar' },
 
+  -- text and related objects
+  { 'tpope/vim-surround' },
+
   -- file management
   { 'preservim/nerdtree' },
 

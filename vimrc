@@ -225,6 +225,12 @@ let g:airline#extensions#tabline#buffer_min_count = 2
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 
+"========[ GUTTER SETTINGS ]========
+
+let g:ale_sign_priority = 30
+let g:gitgutter_sign_priority = 5
+
+
 "========[ NERDTREE SETTINGS ]========
 
 nmap <Leader>. :NERDTreeToggle<CR>

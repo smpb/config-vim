@@ -76,6 +76,7 @@ vim.api.nvim_set_keymap('v', '<Leader>o', ':Oatmeal<CR>', { noremap = true, sile
 vim.g.neovide_input_use_logo = 1
 
 -- map <D-a> to select all
+vim.api.nvim_set_keymap('n', '<D-a>', 'ggVG',    { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<D-a>', 'ggVG',    { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<D-a>', 'ggVG',    { noremap = true, silent = true })
 
@@ -90,6 +91,7 @@ vim.api.nvim_set_keymap('t', '<D-x>', '"+d<CR>', { noremap = true, silent = true
 vim.api.nvim_set_keymap('v', '<D-x>', '"+d<CR>', { noremap = true, silent = true })
 
 -- map <D-v> to paste from system clipboard
+vim.api.nvim_set_keymap('i', '<D-v>', '"+p<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<D-v>', '"+p<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<D-v>', '"+p<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<D-v>', '"+p<CR>', { noremap = true, silent = true })

@@ -21,7 +21,6 @@ set noerrorbells
 " look of the windows
 set showmode
 set showcmd
-set nonumber
 set ruler
 set scrolloff=3   " number of screen lines to keep above and below the cursor
 set laststatus=2  " the last window always has a status bar
@@ -115,6 +114,7 @@ nnoremap <S-Space>  <PageUp>
 
 " make whitespace characters visible
 set listchars=tab:\│\ ,trail:·,nbsp:~
+set list
 
 " toggle visible whitespace characters on and off
 command ListToggle if &modifiable | if &list | set nolist | else | set list | endif | endif

@@ -186,32 +186,32 @@ filetype indent on  " and ident rules for specific file types
 syntax enable       " switch syntax highlighting on
 
 
-"========[ GOLANG FILES ]========
+"========[ GOLANG SETTINGS ]========
 
 " use tabs in Go files
 autocmd FileType go setlocal noexpandtab
 
 
-"========[ MARKDOWN FILES SETTINGS ]========
+"========[ MARKDOWN SETTINGS ]========
 
 " my *.md files are, by default, Markdown files
 autocmd BufRead,BufNewFile *.md setfiletype markdown
 
 
-"========[ OBJC FILES SETTINGS ]========
+"========[ OBJC SETTINGS ]========
 
 " my *.m files are, by default, Objective-C files
 autocmd BufRead,BufNewFile *.m setfiletype objc
 
 
-"========[ PERL FILES SETTINGS ]========
+"========[ PERL SETTINGS ]========
 
 " these files are, by default, Perl files
 autocmd BufNewFile,BufRead *.t   set filetype=perl
 autocmd BufNewFile,BufRead *.bml set filetype=perl tabstop=4 shiftwidth=4
 
 
-"========[ SHELL FILES ]========
+"========[ SHELL SETTINGS ]========
 
 " my *.zshrc files are, by default, zsh files
 autocmd BufRead,BufNewFile *.zshrc setfiletype zsh

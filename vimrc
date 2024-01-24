@@ -119,11 +119,6 @@ set list
 " toggle visible whitespace characters on and off
 command ListToggle if &modifiable | if &list | set nolist | else | set list | endif | endif
 
-augroup VisibleWhiteSpaces
-  autocmd!
-  autocmd BufEnter * ListToggle
-augroup END
-
 " use relative line numbers when moving around in normal mode, but absolute ones in insert mode
 set number
 augroup NumberToggle

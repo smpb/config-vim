@@ -112,6 +112,8 @@ nnoremap <S-Space>  <PageUp>
 
 "========[ GUI OPTIONS ]========
 
+set colorcolumn=81,121
+
 " make whitespace characters visible
 set listchars=tab:\│\ ,trail:·,nbsp:~
 set list

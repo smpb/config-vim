@@ -33,6 +33,9 @@ set smarttab
 set autoindent
 set smartindent
 
+" spellchecking
+set spelllang=en_us,pt_pt
+
 " deal with long lines
 "set formatoptions-=cro " do ':help fo-table' for details
 "set textwidth=120
@@ -197,8 +200,13 @@ autocmd BufRead,BufNewFile *.Jenkinsfile setfiletype groovy
 
 "========[ MARKDOWN SETTINGS ]========
 
-" my *.md files are, by default, Markdown files
-autocmd BufRead,BufNewFile *.md setfiletype markdown
+" my *.md files are, by default, Markdown files with spellcheck
+augroup markdownConfigs
+    autocmd!
+    autocmd FileType markdown setlocal spell
+    autocmd BufRead,BufNewFile *.md setfiletype markdown
+    autocmd BufRead,BufNewFile *.md setlocal spell
+augroup END
 
 
 "========[ OBJC SETTINGS ]========

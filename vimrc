@@ -117,6 +117,9 @@ nnoremap <S-Space>  <PageUp>
 
 set colorcolumn=81,121
 
+" replace the default split bar
+set fillchars+=vert:\│
+
 " make whitespace characters visible
 set listchars=tab:\│\ ,trail:·,nbsp:~
 set list

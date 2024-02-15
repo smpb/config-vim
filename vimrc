@@ -52,6 +52,8 @@ set wildmode=list:longest,full  " show list of completions:
                                 " and complete as much as possible,
                                 " then iterate full completions
 
+" use the system's clipboard
+set clipboard^=unnamed,unnamedplus
 
 "========[ SEARCH OPTIONS ]========
 

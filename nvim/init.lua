@@ -42,6 +42,7 @@ local lazyplugins = {
   { 'preservim/tagbar' },
 
   -- text and related objects
+  { 'tpope/vim-sleuth'   },
   { 'tpope/vim-surround' },
 
   -- file management

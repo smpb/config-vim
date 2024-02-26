@@ -39,6 +39,7 @@ local lazyplugins = {
 
   -- code syntax and tags
   { 'dense-analysis/ale' },
+  { 'ntpeters/vim-better-whitespace' },
   { 'preservim/tagbar' },
 
   -- text and related objects

@@ -259,3 +259,26 @@ nmap <Leader>/ :NERDTreeToggle<CR>
 
 nmap <Leader>. :TagbarToggle<CR>
 
+
+"========[ CONTEXT SETTINGS ]========
+
+" Redefined the default auto commands to update the context,
+"  because 'CursorMoved' and 'WinScrolled' have poor performance.
+let g:context_add_autocmds = 0
+augroup context.vim
+    autocmd!
+    autocmd VimEnter     * ContextActivate
+    autocmd BufAdd       * call context#update('BufAdd')
+    autocmd BufEnter     * call context#update('BufEnter')
+    " autocmd CursorMoved  * call context#update('CursorMoved')
+    autocmd VimResized   * call context#update('VimResized')
+    autocmd CursorHold   * call context#update('CursorHold')
+    autocmd User GitGutter call context#update('GitGutter')
+    autocmd OptionSet number,relativenumber,numberwidth,signcolumn,tabstop,list
+                \          call context#update('OptionSet')
+
+    " if exists('##WinScrolled')
+    "    autocmd WinScrolled * call context#update('WinScrolled')
+    " endif
+augroup END
+

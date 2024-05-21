@@ -2,7 +2,7 @@
   "ale": { "branch": "master", "commit": "c88bddfa83dbb96c2f57426794ed98a0e181ea7e" },
   "context.vim": { "branch": "master", "commit": "108644e146c864995288dee7dacf219267917ac1" },
   "ctrlp.vim": { "branch": "master", "commit": "7c972cb19c8544c681ca345c64ec39e04f4651cc" },
-  "lazy.nvim": { "branch": "main", "commit": "0de782a6b0ffba599dbd332a4019d852564bf28c" },
+  "lazy.nvim": { "branch": "main", "commit": "8f19915175395680808de529e4220da8dafc0759" },
   "nerdtree": { "branch": "master", "commit": "fbb71fcd90602e3ec77f40b864b5f9b437c496c5" },
   "oatmeal.nvim": { "branch": "master", "commit": "c8cdd0a182cf77f88ea5fa4703229ddb3f47c1f7" },
   "onedark.vim": { "branch": "main", "commit": "57b77747694ea5676c3ca0eeaf9567dc499730c0" },

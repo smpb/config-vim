@@ -80,7 +80,10 @@ vim.api.nvim_set_keymap('v', '<Leader>o', ':Oatmeal<CR>', { noremap = true, sile
 -- ========[ NEOVIDE SETTINGS ]========
 
 -- allow the use of Cmd on macOS
-vim.g.neovide_input_use_logo = 1
+vim.g.neovide_input_use_logo = true
+
+-- interprets <Alt+whatever> as <M-whatever>
+vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
 
 -- map <D-a> to select all
 vim.api.nvim_set_keymap('n', '<D-a>', 'ggVG', { noremap = true, silent = true })

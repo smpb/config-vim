@@ -178,6 +178,8 @@ colorscheme onedark
 cabbrev bterm bo term
 map <Leader>t :bterm ++close<CR>
 
+" exit Terminal mode using Esc
+tnoremap <Esc> <C-\><C-n>
 
 "========[ FILE SETTINGS ]========
 

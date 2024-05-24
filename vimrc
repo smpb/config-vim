@@ -63,6 +63,17 @@ set hlsearch    " highlight all matches
 " delete in normal mode to switch off highlighting till next search
 nmap <silent> <BS> :nohlsearch<CR>
 
+" configure 'n' to ALWAYS go forward regardless of how searching started
+"  this uses expression-maps, which maps the left-hand side of the map to an expression that will be evaluated - see ':h map-expression'
+"  v:searchforward variable (internal state of which direction the last search was, see ':h v:searchforward') is used as an index
+"   if the last search direction was forward, the n will be mapped to 'n'
+"   if it was backward, the 'n' will be mapped to 'N' (because the v:searchforward variable is 0)
+"
+" alternative equivalent:
+"  nnoremap <expr> n 'Nn'[v:searchforward]
+"  nnoremap <expr> N 'nN'[v:searchforward]
+nnoremap <expr> n (v:searchforward ? 'n' : 'N')
+nnoremap <expr> N (v:searchforward ? 'N' : 'n')
 
 "========[ PATHS SETUP ]========
 

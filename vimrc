@@ -96,8 +96,8 @@ nmap <C-TAB>    :tabnext<CR>
 nmap <C-S-TAB>  :tabprevious<CR>
 
 " move to the next/previous buffer
-nmap <leader>l  :bnext<CR>
-nmap <leader>h  :bprevious<CR>
+nmap <Leader>;  :bnext<CR>
+nmap <Leader>l  :bprevious<CR>
 
 " 'very magic' mode for regular expression patterns
 " ie, regex work almost exactly like in Perl

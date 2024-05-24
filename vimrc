@@ -112,6 +112,8 @@ vmap <BS> x
 nnoremap <Space>    <PageDown>
 nnoremap <S-Space>  <PageUp>
 
+" use shift+tab in Insert mode to trigger basic auto-complete
+inoremap <S-Tab> <C-n>
 
 "========[ GUI OPTIONS ]========
 

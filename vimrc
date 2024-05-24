@@ -109,8 +109,9 @@ vnoremap / /\v
 vmap <BS> x
 
 " use (shift+)space to jump through the page (like browsers do)
-nnoremap <Space>    <PageDown>
-nnoremap <S-Space>  <PageUp>
+nnoremap <Space>          <PageDown>
+nnoremap <S-Space>        <PageUp>
+nnoremap <Leader><Space>  <PageUp>
 
 " use shift+tab in Insert mode to trigger basic auto-complete
 inoremap <S-Tab> <C-n>

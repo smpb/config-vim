@@ -41,6 +41,7 @@ local lazyplugins = {
   { 'dense-analysis/ale' },
   { 'ntpeters/vim-better-whitespace' },
   { 'preservim/tagbar' },
+  { 'tpope/vim-commentary' },
   { 'wellle/context.vim' },
 
   -- text and related objects

@@ -45,6 +45,7 @@ local lazyplugins = {
   { 'wellle/context.vim' },
 
   -- text and related objects
+  { 'tpope/vim-characterize' },
   { 'tpope/vim-sleuth'   },
   { 'tpope/vim-surround' },
 

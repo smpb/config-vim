@@ -52,6 +52,9 @@ set wildmode=list:longest,full  " show list of completions:
                                 " and complete as much as possible,
                                 " then iterate full completions
 
+" suppress 'No write since last change' when switching files/buffers
+"  hidden - hide (but don't unload) unsaved buffers when abandoning them
+set hidden
 
 "========[ SEARCH OPTIONS ]========
 

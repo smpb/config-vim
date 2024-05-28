@@ -16,14 +16,14 @@ vim.cmd([[
 
 -- ========[ PLUGIN SETTINGS ]========
 
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable',
     lazypath,
   })
 end
@@ -82,10 +82,10 @@ local lazyplugins = {
 
   -- llm
   {
-    "dustinblackman/oatmeal.nvim",
+    'dustinblackman/oatmeal.nvim',
     opts = {
-      backend = "ollama",
-      model = "codellama:latest",
+      backend = 'ollama',
+      model   = 'codellama:latest',
     },
   },
 }
@@ -122,7 +122,7 @@ if vim.g.neovide then
   vim.g.neovide_remember_window_size = true
 
   -- produce particles behind the cursor
-  vim.g.neovide_cursor_vfx_mode = "torpedo"
+  vim.g.neovide_cursor_vfx_mode = 'torpedo'
 end
 
 -- map <D-a> to select all
@@ -145,6 +145,7 @@ vim.api.nvim_set_keymap('i', '<D-v>', '<ESC>"+pi', { noremap = true, silent = tr
 vim.api.nvim_set_keymap('n', '<D-v>', '"+p<CR>',   { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<D-v>', '"+p<CR>',   { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<D-v>', '"+p<CR>',   { noremap = true, silent = true })
+
 
 -- ========[ TELESCOPE SETTINGS ]========
 

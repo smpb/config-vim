@@ -281,10 +281,11 @@ nmap <Leader>. :TagbarToggle<CR>
 
 "========[ CONTEXT SETTINGS ]========
 
-" Redefined the default auto commands to update the context,
+" In classic Vim, redefine the default auto commands to update the context,
 "  because 'CursorMoved' and 'WinScrolled' have poor performance.
-let g:context_add_autocmds = 0
-augroup context.vim
+if !has('nvim')
+  let g:context_add_autocmds = 0
+  augroup context.vim
     autocmd!
     autocmd VimEnter     * ContextActivate
     autocmd BufAdd       * call context#update('BufAdd')
@@ -299,5 +300,6 @@ augroup context.vim
     " if exists('##WinScrolled')
     "    autocmd WinScrolled * call context#update('WinScrolled')
     " endif
-augroup END
+  augroup END
+endif
 

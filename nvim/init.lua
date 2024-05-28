@@ -60,7 +60,7 @@ local lazyplugins = {
       })
     end
   },
-  { 'preservim/tagbar' },
+  { 'stevearc/aerial.nvim' },
   { 'tpope/vim-commentary' },
   { 'wellle/context.vim' },
 
@@ -147,15 +147,28 @@ vim.api.nvim_set_keymap('t', '<D-v>', '"+p<CR>',   { noremap = true, silent = tr
 vim.api.nvim_set_keymap('v', '<D-v>', '"+p<CR>',   { noremap = true, silent = true })
 
 
+-- ========[ AERIAL SETTINGS ]========
+
+require("aerial").setup({});
+
+vim.keymap.set("n", "<Leader>.", "<cmd>AerialToggle!<CR>")
+
+
 -- ========[ TELESCOPE SETTINGS ]========
 
--- load fzf-native extension
-require('telescope').load_extension('fzf')
+local tlscp = require('telescope')
 
--- telescope keymaps
-local telescope = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
-vim.keymap.set('n', '<leader>fg', telescope.live_grep,  {})
-vim.keymap.set('n', '<leader>fb', telescope.buffers,    {})
-vim.keymap.set('n', '<leader>fh', telescope.help_tags,  {})
+-- load fzf-native extension
+tlscp.load_extension('fzf')
+
+-- load aerial extension
+tlscp.load_extension('aerial')
+vim.keymap.set('n', '<Leader>fs', tlscp.extensions.aerial.aerial, {})
+
+-- telescope builtin keymaps
+local tlscp_builtin = require('telescope.builtin')
+vim.keymap.set('n', '<Leader>ff', tlscp_builtin.find_files, {})
+vim.keymap.set('n', '<Leader>fg', tlscp_builtin.live_grep,  {})
+vim.keymap.set('n', '<Leader>fb', tlscp_builtin.buffers,    {})
+vim.keymap.set('n', '<Leader>fh', tlscp_builtin.help_tags,  {})
 

@@ -276,7 +276,9 @@ nmap <Leader>/ :NERDTreeToggle<CR>
 
 "========[ TAGBAR SETTINGS ]========
 
-nmap <Leader>. :TagbarToggle<CR>
+if !has('nvim')
+  nmap <Leader>. :TagbarToggle<CR>
+endif
 
 
 "========[ CONTEXT SETTINGS ]========

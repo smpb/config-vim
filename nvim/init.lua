@@ -85,7 +85,7 @@ local lazyplugins = {
     'dustinblackman/oatmeal.nvim',
     opts = {
       backend = 'ollama',
-      model   = 'codellama:latest',
+      model   = 'llama3:latest',
     },
   },
 }

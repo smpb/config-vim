@@ -40,6 +40,26 @@ local lazyplugins = {
   -- code syntax and tags
   { 'dense-analysis/ale' },
   { 'ntpeters/vim-better-whitespace' },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build  = ':TSUpdate',
+    config = function ()
+      local configs = require('nvim-treesitter.configs')
+
+      configs.setup({
+        ensure_installed = {
+          'bash', 'c', 'comment', 'css', 'csv', 'diff', 'dockerfile',
+          'git_config', 'git_rebase', 'gitattributes', 'gitcommit', 'gitignore',
+          'go', 'gomod', 'gosum', 'gotmpl', 'helm', 'html', 'http', 'javascript',
+          'jq', 'json', 'lua', 'make', 'perl', 'php', 'regex', 'sql', 'ssh_config',
+          'tmux', 'toml', 'typescript', 'vim', 'vimdoc', 'xml', 'yaml'
+        },
+        sync_install     = false,
+        highlight        = { enable = true },
+        indent           = { enable = true },
+      })
+    end
+  },
   { 'preservim/tagbar' },
   { 'tpope/vim-commentary' },
   { 'wellle/context.vim' },

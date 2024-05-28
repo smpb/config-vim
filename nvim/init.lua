@@ -50,8 +50,15 @@ local lazyplugins = {
   { 'tpope/vim-surround' },
 
   -- file management
-  { 'ctrlpvim/ctrlp.vim' },
   { 'preservim/nerdtree' },
+  {
+    'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
+    dependencies = {
+      { 'nvim-lua/plenary.nvim' },
+      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    },
+  },
 
   -- llm
   {
@@ -118,4 +125,16 @@ vim.api.nvim_set_keymap('i', '<D-v>', '<ESC>"+pi', { noremap = true, silent = tr
 vim.api.nvim_set_keymap('n', '<D-v>', '"+p<CR>',   { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<D-v>', '"+p<CR>',   { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<D-v>', '"+p<CR>',   { noremap = true, silent = true })
+
+-- ========[ TELESCOPE SETTINGS ]========
+
+-- load fzf-native extension
+require('telescope').load_extension('fzf')
+
+-- telescope keymaps
+local telescope = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
+vim.keymap.set('n', '<leader>fg', telescope.live_grep,  {})
+vim.keymap.set('n', '<leader>fb', telescope.buffers,    {})
+vim.keymap.set('n', '<leader>fh', telescope.help_tags,  {})
 

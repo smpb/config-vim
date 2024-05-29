@@ -84,8 +84,9 @@ local lazyplugins = {
   {
     'dustinblackman/oatmeal.nvim',
     opts = {
-      backend = 'ollama',
-      model   = 'llama3:latest',
+      model      = 'llama3:latest',
+      backend    = 'ollama',
+      ollama_url = 'http://h.smpb.eu:11434',
     },
   },
 }

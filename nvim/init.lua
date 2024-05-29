@@ -151,7 +151,7 @@ vim.api.nvim_set_keymap('v', '<D-v>', '"+p<CR>',   { noremap = true, silent = tr
 
 require('aerial').setup({})
 
-vim.keymap.set('n', '<Leader>.', '<CMD>AerialToggle!<CR>')
+vim.keymap.set('n', '<Leader>.', '<CMD>AerialToggle<CR>')
 
 
 -- ========[ TELESCOPE SETTINGS ]========

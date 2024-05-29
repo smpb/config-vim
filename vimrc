@@ -27,7 +27,7 @@ set laststatus=2  " the last window always has a status bar
 
 " deal with tabs and indentation
 set shiftwidth=2
-set tabstop=2
+set tabstop=4
 set expandtab
 set smarttab
 set autoindent

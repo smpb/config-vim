@@ -271,7 +271,7 @@ let g:gitgutter_sign_priority = 5
 
 "========[ NERDTREE SETTINGS ]========
 
-nmap <Leader>/ :NERDTreeToggle<CR>
+nmap <Leader>d :NERDTreeToggle<CR>
 
 
 "========[ TAGBAR SETTINGS ]========

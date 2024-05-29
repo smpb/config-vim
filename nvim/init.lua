@@ -89,6 +89,9 @@ local lazyplugins = {
       ollama_url = 'http://h.smpb.eu:11434',
     },
   },
+
+  -- ui
+  { 'nvim-tree/nvim-web-devicons', lazy = true },
 }
 
 require('lazy').setup(lazyplugins, {

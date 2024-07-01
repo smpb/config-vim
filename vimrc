@@ -130,6 +130,22 @@ nnoremap <Leader><Space>  <PageUp>
 " use shift+tab in Insert mode to trigger basic auto-complete
 inoremap <S-Tab> <C-n>
 
+" arrow keys
+inoremap <Up>    <nop>
+inoremap <Down>  <nop>
+inoremap <Left>  <nop>
+inoremap <Right> <nop>
+
+nnoremap <Up>    <C-W>k
+nnoremap <Down>  <C-W>j
+nnoremap <Left>  <C-W>h
+nnoremap <Right> <C-W>l
+
+nnoremap  <Leader><Up>    :resize -2<CR>
+nnoremap  <Leader><Down>  :resize +2<CR>
+nnoremap  <Leader><Left>  :vertical resize -2<CR>
+nnoremap  <Leader><Right> :vertical resize +2<CR>
+
 "========[ GUI OPTIONS ]========
 
 set colorcolumn=81,121

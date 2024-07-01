@@ -171,7 +171,7 @@ vim.keymap.set('n', '<Leader>fs', tlscp.extensions.aerial.aerial, {})
 
 -- find
 vim.keymap.set('n', '<Leader>:',  '<CMD>Telescope command_history<CR>', {})
-vim.keymap.set('n', '<Leader>/',  '<CMD>Telescope live_grep<CR>', {})
+vim.keymap.set('n', '<Leader>/',  '<CMD>Telescope live_grep grep_open_files=true<CR>', {})
 vim.keymap.set('n', '<Leader>fb', '<CMD>Telescope buffers sort_mru=true sort_lastused=true<CR>', {})
 vim.keymap.set('n', '<Leader>ff', '<CMD>Telescope find_files<CR>', {})
 vim.keymap.set('n', '<Leader>fg', '<CMD>Telescope live_grep<CR>', {})

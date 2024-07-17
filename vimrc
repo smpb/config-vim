@@ -130,6 +130,9 @@ nnoremap <Leader><Space>  <PageUp>
 " use shift+tab in Insert mode to trigger basic auto-complete
 inoremap <S-Tab> <C-n>
 
+" when auto-completing, pressing Enter always just inserts the selected word
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+
 " arrow keys
 function! ArrowsInMenus(key)
   if pumvisible()

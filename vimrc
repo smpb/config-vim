@@ -131,10 +131,18 @@ nnoremap <Leader><Space>  <PageUp>
 inoremap <S-Tab> <C-n>
 
 " arrow keys
-inoremap <Up>    <nop>
-inoremap <Down>  <nop>
-inoremap <Left>  <nop>
-inoremap <Right> <nop>
+function! ArrowsInMenus(key)
+  if pumvisible()
+    return a:key
+  else
+    return ''
+  endif
+endfunction
+
+inoremap <expr> <Up>    ArrowsInMenus("\<Up>")
+inoremap <expr> <Down>  ArrowsInMenus("\<Down>")
+inoremap <expr> <Left>  ArrowsInMenus("\<Left>")
+inoremap <expr> <Right> ArrowsInMenus("\<Right>")
 
 nnoremap <Up>    <C-W>k
 nnoremap <Down>  <C-W>j

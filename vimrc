@@ -157,6 +157,11 @@ nnoremap  <Leader><Down>  :resize +2<CR>
 nnoremap  <Leader><Left>  :vertical resize -2<CR>
 nnoremap  <Leader><Right> :vertical resize +2<CR>
 
+" recording the @q macro will overwrite the "q named register
+" this allows edits to it, then saves the changes back to the register
+nnoremap <leader>Q :let @q = input("Edit macro:", @q)<CR>
+
+
 "========[ GUI OPTIONS ]========
 
 set colorcolumn=81,121

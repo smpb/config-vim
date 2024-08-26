@@ -170,7 +170,14 @@ vim.keymap.set('n', '<Leader>>', '<CMD>AerialNavToggle<CR>')
 -- ========[ ONEDARK SETTINGS ]========
 
 require('onedark').setup({
-  style = 'dark'
+  style      = 'dark',
+  code_style = {
+      comments  = 'none',
+      keywords  = 'none',
+      functions = 'none',
+      strings   = 'none',
+      variables = 'none',
+  },
 });
 require('onedark').load();
 

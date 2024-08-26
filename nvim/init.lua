@@ -172,6 +172,7 @@ vim.keymap.set('n', '<Leader>>', '<CMD>AerialNavToggle<CR>')
 require('onedark').setup({
   style = 'dark'
 });
+require('onedark').load();
 
 
 -- ========[ LUALINE SETTINGS ]========

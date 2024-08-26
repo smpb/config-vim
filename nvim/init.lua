@@ -34,8 +34,11 @@ local lazyplugins = {
   { 'airblade/vim-gitgutter' },
 
   -- interface and color
-  { 'joshdick/onedark.vim' },
-  { 'vim-airline/vim-airline' },
+  { 'navarasu/onedark.nvim' },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+  },
 
   -- code syntax and tags
   { 'dense-analysis/ale' },
@@ -162,6 +165,22 @@ require('aerial').setup({
 
 vim.keymap.set('n', '<Leader>.', '<CMD>AerialToggle<CR>')
 vim.keymap.set('n', '<Leader>>', '<CMD>AerialNavToggle<CR>')
+
+
+-- ========[ ONEDARK SETTINGS ]========
+
+require('onedark').setup({
+  style = 'dark'
+});
+
+
+-- ========[ LUALINE SETTINGS ]========
+
+require('lualine').setup({
+  options = {
+    theme = 'onedark'
+  }
+});
 
 
 -- ========[ TELESCOPE SETTINGS ]========

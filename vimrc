@@ -245,6 +245,7 @@ syntax enable       " switch syntax highlighting on
 " use tabs in Go files
 autocmd FileType go setlocal noexpandtab
 autocmd FileType go setlocal shiftwidth=4
+autocmd FileType go let g:ale_fix_on_save = 1
 
 
 "========[ JENKINSFILE SETTINGS ]========
@@ -290,6 +291,11 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_min_count = 2
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
+
+"========[ ALE SETTINGS ]========
+
+let g:ale_completion_enabled = 1
+let g:ale_fixers = { 'go': ['goimports','gofmt'] }
 
 "========[ BETTER WHITESPACES SETTINGS ]========
 

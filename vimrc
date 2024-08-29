@@ -244,6 +244,7 @@ syntax enable       " switch syntax highlighting on
 
 " use tabs in Go files
 autocmd FileType go setlocal noexpandtab
+autocmd FileType go setlocal shiftwidth=4
 
 
 "========[ JENKINSFILE SETTINGS ]========

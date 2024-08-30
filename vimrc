@@ -239,6 +239,11 @@ filetype indent on  " and ident rules for specific file types
 
 syntax enable       " switch syntax highlighting on
 
+"
+"========[ DOCKERSFILE SETTINGS ]========
+
+autocmd BufRead,BufNewFile Dockerfile* setfiletype dockerfile
+
 
 "========[ GOLANG SETTINGS ]========
 

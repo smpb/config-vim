@@ -302,6 +302,10 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:ale_completion_enabled = 1
 let g:ale_fixers = { 'go': ['goimports','gofmt'] }
 
+nmap <Leader>j :ALENextWrap<CR>
+nmap <Leader>k :ALEPreviousWrap<CR>
+
+
 "========[ BETTER WHITESPACES SETTINGS ]========
 
 let g:better_whitespace_enabled = 1

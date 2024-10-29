@@ -84,6 +84,7 @@ local lazyplugins = {
   },
 
   -- llm
+  { 'github/copilot.vim' },
   {
     'dustinblackman/oatmeal.nvim',
     opts = {

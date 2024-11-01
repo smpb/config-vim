@@ -122,6 +122,12 @@ vnoremap / /\v
 "  i.e. delete the selected text
 vmap <BS> x
 
+" in insert mode:
+" by default, ctrl-U deletes the entire line
+" by default, ctrl-W deletes the word before the cursor
+" with this,  ctrl-D deletes to the end of the line (like D in normal mode)
+inoremap <C-d> <C-O>D
+
 " use (shift+)space to jump through the page (like browsers do)
 nnoremap <Space>          <PageDown>
 nnoremap <S-Space>        <PageUp>

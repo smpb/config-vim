@@ -113,26 +113,6 @@ vim.api.nvim_set_keymap('n', '<Leader>t', ':split<BAR>terminal<CR><C-w>J:resize 
 vim.api.nvim_set_keymap('n', '<Leader>o', ':Oatmeal<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<Leader>o', ':Oatmeal<CR>', { noremap = true, silent = true })
 
-
--- ========[ NEOVIDE SETTINGS ]========
-
-if vim.g.neovide then
-  -- allow the use of Cmd on macOS
-  vim.g.neovide_input_use_logo = true
-
-  -- interprets <Alt+whatever> as <M-whatever>
-  vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
-
-  -- hide mouse when typing
-  vim.g.neovide_hide_mouse_when_typing = true
-
-  -- use the window size from the previous session
-  vim.g.neovide_remember_window_size = true
-
-  -- produce particles behind the cursor
-  vim.g.neovide_cursor_vfx_mode = 'torpedo'
-end
-
 -- map <D-a> to select all
 vim.api.nvim_set_keymap('n', '<D-a>', 'ggVG', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<D-a>', 'ggVG', { noremap = true, silent = true })
@@ -226,6 +206,26 @@ require('lualine').setup({
 });
 
 
+-- ========[ NEOVIDE SETTINGS ]========
+
+if vim.g.neovide then
+  -- allow the use of Cmd on macOS
+  vim.g.neovide_input_use_logo = true
+
+  -- interprets <Alt+whatever> as <M-whatever>
+  vim.g.neovide_input_macos_option_key_is_meta = 'only_left'
+
+  -- hide mouse when typing
+  vim.g.neovide_hide_mouse_when_typing = true
+
+  -- use the window size from the previous session
+  vim.g.neovide_remember_window_size = true
+
+  -- produce particles behind the cursor
+  vim.g.neovide_cursor_vfx_mode = 'torpedo'
+end
+
+
 -- ========[ TELESCOPE SETTINGS ]========
 
 local tlscp = require('telescope')
@@ -264,4 +264,3 @@ vim.keymap.set('n', '<Leader>sl', '<CMD>Telescope loclist<CR>', {})
 vim.keymap.set('n', '<Leader>sm', '<CMD>Telescope marks<CR>', {})
 vim.keymap.set('n', '<Leader>sM', '<CMD>Telescope man_pages<CR>', {})
 vim.keymap.set('n', '<Leader>so', '<CMD>Telescope vim_options<CR>', {})
-

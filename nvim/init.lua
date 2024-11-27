@@ -173,6 +173,14 @@ vim.keymap.set('n', '<Leader>.', '<CMD>AerialToggle<CR>')
 vim.keymap.set('n', '<Leader>>', '<CMD>AerialNavToggle<CR>')
 
 
+-- ========[ COPILOT SETTINGS ]========
+
+vim.keymap.set('i', '<M-Tab>', 'copilot#Accept("\\<Tab>")', {
+  expr = true,
+  replace_keycodes = false
+})
+
+
 -- ========[ ONEDARK SETTINGS ]========
 
 require('onedark').setup({

@@ -113,6 +113,10 @@ nmap <C-S-TAB>  :tabprevious<CR>
 nmap <Leader>;  :bnext<CR>
 nmap <Leader>l  :bprevious<CR>
 
+" move to the next buffer and close the previous one (preserves panes)
+cabbrev bc bnext \| bd #
+map <Leader>' :bc<CR>
+
 " 'very magic' mode for regular expression patterns
 " ie, regex work almost exactly like in Perl
 nnoremap / /\v

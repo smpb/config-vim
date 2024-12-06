@@ -99,7 +99,7 @@ nnoremap <expr> N (v:searchforward ? 'N' : 'n')
 " remap leader key - user commands
 "  example,     >:map <Leader>A  oanother line<Esc>
 "  works like,  >:map ,A  oanother line<Esc>
-let mapleader=","
+let mapleader=" "
 
 " remap bracket matching to the Tab key
 nnoremap <TAB> %
@@ -131,11 +131,6 @@ vmap <BS> x
 " by default, ctrl-W deletes the word before the cursor
 " with this,  ctrl-D deletes to the end of the line (like D in normal mode)
 inoremap <C-d> <C-O>D
-
-" use (shift+)space to jump through the page (like browsers do)
-nnoremap <Space>          <PageDown>
-nnoremap <S-Space>        <PageUp>
-nnoremap <Leader><Space>  <PageUp>
 
 " use shift+tab in Insert mode to trigger basic auto-complete
 inoremap <S-Tab> <C-n>

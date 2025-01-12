@@ -6,12 +6,11 @@
 
 -- ========[ LOAD VIMRC ]========
 
-vim.cmd([[
-  set runtimepath^=~/.vim runtimepath+=~/.vim/after
-  let &packpath = &runtimepath
+vim.opt.runtimepath:prepend('~/.vim')
+vim.opt.runtimepath:append('~/.vim/after')
+vim.opt.packpath = vim.opt.runtimepath:get()
 
-  source ~/.vimrc
-]])
+vim.cmd('source ~/.vimrc')
 
 
 -- ========[ PLUGIN SETTINGS ]========

@@ -68,7 +68,7 @@ local lazyplugins = {
     cmd  = { 'AerialToggle', 'AerialNavToggle', 'AerialInfo' }
   },
   { 'tpope/vim-commentary' },
-  { 'wellle/context.vim' },
+  { 'nvim-treesitter/nvim-treesitter-context' },
 
   -- text and related objects
   { 'tpope/vim-characterize' },
@@ -174,6 +174,14 @@ require('aerial').setup({
 
 vim.keymap.set('n', '<Leader>.', '<CMD>AerialToggle<CR>')
 vim.keymap.set('n', '<Leader>>', '<CMD>AerialNavToggle<CR>')
+
+
+-- ========[ CONTEXT SETTINGS ]========
+
+require('treesitter-context').setup({
+  enable = true,
+  separator = '—',
+})
 
 
 -- ========[ COPILOT SETTINGS ]========

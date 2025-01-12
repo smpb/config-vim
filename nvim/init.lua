@@ -100,6 +100,21 @@ local lazyplugins = {
   -- llm
   { 'github/copilot.vim' },
   {
+    'CopilotC-Nvim/CopilotChat.nvim',
+    -- lazy = true,
+    -- cmd = {
+    --   'CopilotChatToggle',
+    --   'CopilotChatCommit',
+    --   'CopilotChatExplain',
+    --   'CopilotChatReview',
+    --   'CopilotChatTests'
+    -- },
+    dependencies = {
+      { 'github/copilot.vim' },
+      { 'nvim-lua/plenary.nvim' },
+    },
+  },
+  {
     'dustinblackman/oatmeal.nvim',
     opts = {
       model      = 'llama3:latest',
@@ -201,6 +216,29 @@ vim.keymap.set('i', '<M-Tab>', 'copilot#Accept("\\<Tab>")', {
   expr = true,
   replace_keycodes = false
 })
+
+
+-- ========[ COPILOT CHAT SETTINGS ]========
+
+local chat = require('CopilotChat')
+
+chat.setup({
+  model           = 'claude-3.5-sonnet',
+  question_header = '  ',
+  answer_header   = '  ',
+  error_header    = '  ',
+})
+
+vim.keymap.set('n', '<Leader>aa', '<CMD>CopilotChatToggle<CR>',  { desc = 'Toggle Copilot chat' })
+vim.keymap.set('v', '<Leader>aa', '<CMD>CopilotChatToggle<CR>',  { desc = 'Toggle Copilot chat' })
+vim.keymap.set('n', '<Leader>ac', '<CMD>CopilotChatCommit<CR>',  { desc = 'Commit current buffer' })
+vim.keymap.set('v', '<Leader>ac', '<CMD>CopilotChatCommit<CR>',  { desc = 'Commit selected code' })
+vim.keymap.set('n', '<Leader>ae', '<CMD>CopilotChatExplain<CR>', { desc = 'Explain current buffer' })
+vim.keymap.set('v', '<Leader>ae', '<CMD>CopilotChatExplain<CR>', { desc = 'Explain selected code' })
+vim.keymap.set('n', '<Leader>ar', '<CMD>CopilotChatReview<CR>',  { desc = 'Review current buffer' })
+vim.keymap.set('v', '<Leader>ar', '<CMD>CopilotChatReview<CR>',  { desc = 'Review selected code' })
+vim.keymap.set('n', '<Leader>at', '<CMD>CopilotChatTests<CR>',   { desc = 'Write tests for the current buffer' })
+vim.keymap.set('n', '<Leader>at', '<CMD>CopilotChatTests<CR>',   { desc = 'Write tests for the selected code' })
 
 
 -- ========[ NVIM-TREE SETTINGS ]========

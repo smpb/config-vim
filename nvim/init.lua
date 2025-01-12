@@ -62,7 +62,11 @@ local lazyplugins = {
       })
     end
   },
-  { 'stevearc/aerial.nvim' },
+  {
+    'stevearc/aerial.nvim',
+    lazy = true,
+    cmd  = { 'AerialToggle', 'AerialNavToggle', 'AerialInfo' }
+  },
   { 'tpope/vim-commentary' },
   { 'wellle/context.vim' },
 

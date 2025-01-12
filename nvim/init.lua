@@ -164,8 +164,8 @@ end
 -- open terminal below all splits
 vim.api.nvim_set_keymap('n', '<Leader>t', ':split<BAR>terminal<CR><C-w>J:resize 15<CR>', { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap('n', '<Leader>o', ':Oatmeal<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<Leader>o', ':Oatmeal<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>ao', ':Oatmeal<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<Leader>ao', ':Oatmeal<CR>', { noremap = true, silent = true })
 
 -- map <D-a> to select all
 vim.api.nvim_set_keymap('n', '<D-a>', 'ggVG', { noremap = true, silent = true })

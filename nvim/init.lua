@@ -238,7 +238,7 @@ vim.keymap.set('v', '<Leader>ae', '<CMD>CopilotChatExplain<CR>', { desc = 'Expla
 vim.keymap.set('n', '<Leader>ar', '<CMD>CopilotChatReview<CR>',  { desc = 'Review current buffer' })
 vim.keymap.set('v', '<Leader>ar', '<CMD>CopilotChatReview<CR>',  { desc = 'Review selected code' })
 vim.keymap.set('n', '<Leader>at', '<CMD>CopilotChatTests<CR>',   { desc = 'Write tests for the current buffer' })
-vim.keymap.set('n', '<Leader>at', '<CMD>CopilotChatTests<CR>',   { desc = 'Write tests for the selected code' })
+vim.keymap.set('v', '<Leader>at', '<CMD>CopilotChatTests<CR>',   { desc = 'Write tests for the selected code' })
 
 
 -- ========[ NVIM-TREE SETTINGS ]========

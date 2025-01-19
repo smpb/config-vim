@@ -123,6 +123,15 @@ local lazyplugins = {
     },
   },
 
+  -- terminal
+  {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    config  = true,
+    lazy    = true,
+    cmd     = { 'ToggleTerm' }
+  },
+
   -- ui
   { 'nvim-tree/nvim-web-devicons', lazy = true },
 }
@@ -382,3 +391,25 @@ vim.keymap.set('n', '<Leader>sl', '<CMD>Telescope loclist<CR>', {})
 vim.keymap.set('n', '<Leader>sm', '<CMD>Telescope marks<CR>', {})
 vim.keymap.set('n', '<Leader>sM', '<CMD>Telescope man_pages<CR>', {})
 vim.keymap.set('n', '<Leader>so', '<CMD>Telescope vim_options<CR>', {})
+
+
+-- ========[ TOGGLETERM SETTINGS ]========
+
+require('toggleterm').setup({
+  size            = 15,
+  open_mapping    = [[<C-/>]],
+  hide_numbers    = true,
+  shade_filetypes = {},
+  shade_terminals = true,
+  shading_factor  = 0,
+  start_in_insert = true,
+  persist_size    = true,
+  direction       = 'float',
+  close_on_exit   = true,
+  shell           = vim.o.shell,
+  float_opts = {
+    border = 'curved',
+  },
+})
+
+vim.keymap.set('n', '<Leader>tt', '<CMD>ToggleTerm<CR>', { desc = 'Toggle terminal' })

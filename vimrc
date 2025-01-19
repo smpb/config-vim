@@ -227,7 +227,7 @@ colorscheme onedark
 
 " open terminal below all splits
 cabbrev bterm bo term
-map <Leader>t :bterm ++close<CR>
+map <Leader>tt :bterm ++close<CR>
 
 " exit Terminal mode using Esc
 tnoremap <Esc> <C-\><C-n>

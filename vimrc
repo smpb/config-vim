@@ -169,7 +169,11 @@ nnoremap <leader>Q :let @q = input("Edit macro:", @q)<CR>
 
 "========[ GUI OPTIONS ]========
 
-set colorcolumn=81,121
+augroup ColorColumnToggle
+  autocmd!
+  autocmd InsertEnter * set colorcolumn=81,121
+  autocmd InsertLeave * set colorcolumn=
+augroup END
 
 " replace the default split bar
 set fillchars+=vert:\│

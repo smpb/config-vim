@@ -227,6 +227,10 @@ let g:airline_theme="onedark"
 set background=dark
 colorscheme onedark
 
+" maximum number of items shown in popup menus
+set pumheight=10
+
+
 "========[ TERMINAL SETTINGS ]========
 
 " open terminal below all splits

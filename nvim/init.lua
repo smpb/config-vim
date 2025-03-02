@@ -107,6 +107,14 @@ local lazyplugins = {
     },
   },
 
+  -- LSP
+  { 'williamboman/mason.nvim' },
+  { 'williamboman/mason-lspconfig.nvim' },
+  {
+    'neovim/nvim-lspconfig',
+    event = { 'BufReadPre', "BufNewFile", "BufEnter" }
+  },
+
   -- llm
   { 'github/copilot.vim' },
   {
@@ -212,6 +220,16 @@ require('aerial').setup({
 
 vim.keymap.set('n', '<Leader>.', '<CMD>AerialToggle<CR>')
 vim.keymap.set('n', '<Leader>>', '<CMD>AerialNavToggle<CR>')
+
+
+-- ========[ ALE SETTINGS ]========
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'dockerfile', 'helm' },
+  callback = function()
+      vim.b.ale_enabled = 0
+  end,
+})
 
 
 -- ========[ CMP SETTINGS ]========
@@ -349,6 +367,36 @@ vim.keymap.set('i', '<M-Tab>', 'copilot#Accept("\\<Tab>")', {
   expr = true,
   replace_keycodes = false
 })
+
+
+-- ========[ LSP SETTINGS ]========
+
+require('mason').setup()
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    'dockerls', 'docker_compose_language_service',
+    'helm_ls', 'vale_ls', 'yamlls'
+  },
+})
+
+
+local lspconfig = require('lspconfig')
+
+vim.filetype.add({
+  pattern = {
+    ["compose.*%.ya?ml"] = "yaml.docker-compose",
+    ["docker%-compose.*%.ya?ml"] = "yaml.docker-compose",
+  },
+})
+
+lspconfig.dockerls.setup {}
+lspconfig.docker_compose_language_service.setup {}
+lspconfig.helm_ls.setup {}
+lspconfig.vale_ls.setup {}
+lspconfig.yamlls.setup {}
+
+vim.keymap.set('n', '<Leader>j', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic' })
+vim.keymap.set('n', '<Leader>k', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic' })
 
 
 -- ========[ NVIM-TREE SETTINGS ]========

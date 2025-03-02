@@ -101,18 +101,11 @@ local lazyplugins = {
   -- llm
   { 'github/copilot.vim' },
   {
-    'CopilotC-Nvim/CopilotChat.nvim',
-    -- lazy = true,
-    -- cmd = {
-    --   'CopilotChatToggle',
-    --   'CopilotChatCommit',
-    --   'CopilotChatExplain',
-    --   'CopilotChatReview',
-    --   'CopilotChatTests'
-    -- },
+    'olimorris/codecompanion.nvim',
+    config = true,
     dependencies = {
-      { 'github/copilot.vim' },
       { 'nvim-lua/plenary.nvim' },
+      { 'nvim-treesitter/nvim-treesitter' },
     },
   },
   {
@@ -220,35 +213,74 @@ require('treesitter-context').setup({
 })
 
 
+-- ========[ CODECOMPANION SETTINGS ]========
+
+require('codecompanion').setup({
+  adapters = {
+    claude = function()
+      return require('codecompanion.adapters').extend('copilot', {
+        schema = {
+          model = {
+            default = 'claude-3.5-sonnet',
+          },
+        },
+      })
+    end,
+  },
+  strategies = {
+    chat = {
+      adapter = 'claude',
+      slash_commands = {
+        ['file'] = {
+          opts = {
+            provider = 'telescope',
+            contains_code = true,
+          },
+        },
+        ['symbols'] = {
+          opts = {
+            provider = 'telescope',
+            contains_code = true,
+          },
+        },
+      },
+    },
+    inline = {
+      adapter = 'claude',
+    },
+  },
+  display = {
+    action_palette = {
+      provider = 'telescope',
+      opts = {
+        show_default_actions = true,
+        show_default_prompt_library = true,
+      },
+    },
+    chat = {
+      show_settings = true,
+      window = {
+        layout = 'vertical',
+        width = 0.4,
+      },
+    },
+  },
+})
+
+vim.api.nvim_command('cabbrev cc CodeCompanion')
+vim.api.nvim_command('cabbrev ccc CodeCompanionChat')
+
+vim.keymap.set('n', '<Leader>cc', '<CMD>CodeCompanionChat Toggle<CR>',  { desc = 'Toggle CodeCompanion chat' })
+vim.keymap.set('v', '<Leader>cc', '<CMD>CodeCompanionChat Toggle<CR>',  { desc = 'Toggle CodeCompanion chat' })
+vim.keymap.set('n', '<Leader>cm', '<CMD>CodeCompanionActions<CR>',  { desc = 'CodeCompanion actions menu' })
+vim.keymap.set('v', '<Leader>cm', '<CMD>CodeCompanionActions<CR>',  { desc = 'CodeCompanion actions menu' })
+
 -- ========[ COPILOT SETTINGS ]========
 
 vim.keymap.set('i', '<M-Tab>', 'copilot#Accept("\\<Tab>")', {
   expr = true,
   replace_keycodes = false
 })
-
-
--- ========[ COPILOT CHAT SETTINGS ]========
-
-local chat = require('CopilotChat')
-
-chat.setup({
-  model           = 'claude-3.5-sonnet',
-  question_header = '  ',
-  answer_header   = '  ',
-  error_header    = '  ',
-})
-
-vim.keymap.set('n', '<Leader>aa', '<CMD>CopilotChatToggle<CR>',  { desc = 'Toggle Copilot chat' })
-vim.keymap.set('v', '<Leader>aa', '<CMD>CopilotChatToggle<CR>',  { desc = 'Toggle Copilot chat' })
-vim.keymap.set('n', '<Leader>ac', '<CMD>CopilotChatCommit<CR>',  { desc = 'Commit current buffer' })
-vim.keymap.set('v', '<Leader>ac', '<CMD>CopilotChatCommit<CR>',  { desc = 'Commit selected code' })
-vim.keymap.set('n', '<Leader>ae', '<CMD>CopilotChatExplain<CR>', { desc = 'Explain current buffer' })
-vim.keymap.set('v', '<Leader>ae', '<CMD>CopilotChatExplain<CR>', { desc = 'Explain selected code' })
-vim.keymap.set('n', '<Leader>ar', '<CMD>CopilotChatReview<CR>',  { desc = 'Review current buffer' })
-vim.keymap.set('v', '<Leader>ar', '<CMD>CopilotChatReview<CR>',  { desc = 'Review selected code' })
-vim.keymap.set('n', '<Leader>at', '<CMD>CopilotChatTests<CR>',   { desc = 'Write tests for the current buffer' })
-vim.keymap.set('v', '<Leader>at', '<CMD>CopilotChatTests<CR>',   { desc = 'Write tests for the selected code' })
 
 
 -- ========[ NVIM-TREE SETTINGS ]========

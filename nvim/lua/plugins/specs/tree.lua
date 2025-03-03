@@ -12,8 +12,8 @@ return {
     vim.opt.termguicolors = true
 
     -- keymaps
-    vim.keymap.set('n', '<Leader>d', '<CMD>NvimTreeToggle<CR>', { desc = 'Toggle file tree' })
-    vim.keymap.set('v', '<Leader>d', '<CMD>NvimTreeToggle<CR>', { desc = 'Toggle file tree' })
+    vim.keymap.set('n', '<Leader>e', '<CMD>NvimTreeToggle<CR>', { desc = 'Toggle file tree' })
+    vim.keymap.set('v', '<Leader>e', '<CMD>NvimTreeToggle<CR>', { desc = 'Toggle file tree' })
   end,
 
   -- configuration

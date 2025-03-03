@@ -13,6 +13,9 @@ if vim.g.neovide then
   -- use the window size from the previous session
   vim.g.neovide_remember_window_size = true
 
+  -- trail of the cursor lags behind the front edge
+  vim.g.neovide_cursor_trail_size = 0.6
+
   -- produce particles behind the cursor
   vim.g.neovide_cursor_vfx_mode = 'torpedo'
 end

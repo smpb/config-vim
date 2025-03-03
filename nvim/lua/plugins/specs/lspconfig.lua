@@ -14,15 +14,15 @@ return {
     -- configuration
     config = function()
       local ensure_installed = {}
-      -- name: 'dockerls', 'docker_compose_language_service', 'gopls', 'helm_ls', 'lua_ls', 'vale_ls', 'yamlls'
-      -- name: 'dockerls', 'docker_compose_language_service', 'gopls', 'helm_ls', 'lua_ls', 'vale_ls', 'yamlls'
 
       -- Load package configurations
       local tools_path = vim.fn.stdpath('config') .. '/lua/plugins/tools'
+
       for name in vim.fs.dir(tools_path) do
         if name:match('%.lua$') then
           local tool = require('plugins.tools.' .. name:gsub('%.lua$', ''))
-          if tool.name then
+
+          if tool.name and tool.lsp then
             table.insert(ensure_installed, tool.name)
           end
         end

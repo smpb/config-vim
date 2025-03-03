@@ -1,9 +1,17 @@
 -- Diagnostics settings
 
-vim.diagnostic.config {
-  virtual_text = false,
+vim.diagnostic.config({
+  jump = {
+    severity = {
+      min = vim.diagnostic.severity.WARN
+    },
+    float = true,
+  },
+  severity_sort = true,
+  underline = true,
   update_in_insert = true,
-}
+  virtual_text = false,
+})
 
 -- trigger diagnostic hover message on cursor hold
 local diag_hover_enabled = true

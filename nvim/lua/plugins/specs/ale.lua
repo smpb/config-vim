@@ -6,7 +6,7 @@ return {
     vim.g.ale_virtualtext_cursor = 'disabled'
 
     vim.api.nvim_create_autocmd('FileType', {
-      pattern = { 'go', 'helm' },
+      pattern = { 'helm' },
       callback = function()
           vim.b.ale_enabled = 0
       end,

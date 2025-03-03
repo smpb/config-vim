@@ -16,7 +16,7 @@ return {
       require('mason-lspconfig').setup({
         ensure_installed = {
           'dockerls', 'docker_compose_language_service',
-          'helm_ls', 'vale_ls', 'yamlls'
+          'helm_ls', 'lua_ls', 'vale_ls', 'yamlls'
         },
       })
     end
@@ -31,6 +31,21 @@ return {
     config = function()
       local lspconfig = require('lspconfig')
 
+      -- keymaps
+      local keymaps = function()
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, attach_opts)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, attach_opts)
+        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, attach_opts)
+        vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, attach_opts)
+        vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, attach_opts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, attach_opts)
+        vim.keymap.set('n', 'sr', require('telescope.builtin').lsp_references, attach_opts)
+      end
+
+      -- nvim-cmp supports additional completion capabilities
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
       vim.filetype.add({
         pattern = {
           ['compose.*%.ya?ml'] = 'yaml.docker-compose',
@@ -38,15 +53,18 @@ return {
         },
       })
 
-      lspconfig.dockerls.setup {}
-      lspconfig.docker_compose_language_service.setup {}
-      lspconfig.helm_ls.setup {}
-      lspconfig.vale_ls.setup {}
-      lspconfig.yamlls.setup {}
+      -- setup servers
+      local servers = {
+        'dockerls', 'docker_compose_language_service', 'gopls', 'helm_ls',
+        'lua_ls', 'vale_ls', 'yamlls'
+      }
 
-      -- keymaps
-      vim.keymap.set('n', '<Leader>j', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic' })
-      vim.keymap.set('n', '<Leader>k', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic' })
+      for _, server in ipairs(servers) do
+        lspconfig[server].setup {
+          on_attach = keymaps,
+          capabilities = capabilities,
+        }
+      end
     end
   }
 }

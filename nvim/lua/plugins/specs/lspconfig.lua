@@ -32,7 +32,9 @@ return {
       local lspconfig = require('lspconfig')
 
       -- keymaps
-      local keymaps = function()
+      local keymaps = function(_, bufnr)
+        local attach_opts = { silent = true, buffer = bufnr }
+
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, attach_opts)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, attach_opts)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, attach_opts)

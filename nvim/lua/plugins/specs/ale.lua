@@ -3,15 +3,11 @@ return {
 
   -- configuration
   config = function()
-    require('aerial').setup({
-      filter_kind = false,
-      nav = {
-        autojump = true
-      }
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = { 'dockerfile', 'go', 'helm' },
+      callback = function()
+          vim.b.ale_enabled = 0
+      end,
     })
-
-    -- keymaps
-    vim.keymap.set('n', '<Leader>.', '<CMD>AerialToggle<CR>')
-    vim.keymap.set('n', '<Leader>>', '<CMD>AerialNavToggle<CR>')
   end
 }

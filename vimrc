@@ -314,6 +314,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 let g:ale_completion_enabled = 1
 let g:ale_fixers = { 'go': ['goimports','gofmt'] }
+let g:ale_linters = { 'go': ['golangci-lint'] }
 
 nmap <Leader>j :ALEPreviousWrap<CR>
 nmap <Leader>k :ALENextWrap<CR>

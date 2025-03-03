@@ -32,7 +32,7 @@ toggle_diag_hover()
 
 -- keymaps
 vim.keymap.set('n', '<Leader>e', toggle_diag_hover, { silent = true, desc = 'Toggle diagnostic hover' })
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<Leader>q', vim.diagnostic.setloclist)
-vim.keymap.set('n', '<Leader>Q', vim.diagnostic.setqflist)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic' })
+vim.keymap.set('n', '<Leader>q', vim.diagnostic.setloclist, { desc = 'Add diagnostics to the location list' })
+vim.keymap.set('n', '<Leader>Q', vim.diagnostic.setqflist, { desc = 'Add diagnostics to the quickfix list' })

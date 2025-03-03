@@ -24,6 +24,9 @@ return {
 
     -- configuration
     config = function()
+      local ollama_scheme = os.getenv('OLLAMA_SCHEME') or 'http'
+      local ollama_host = os.getenv('OLLAMA_HOST') or 'localhost:11434'
+
       require('codecompanion').setup({
         adapters = {
           opts = {
@@ -49,7 +52,7 @@ return {
                 },
               },
               env = {
-                url = os.getenv('OLLAMA_API_BASE') or 'http://localhost:11434',
+                url = ollama_scheme .. '://' .. ollama_host,
               },
             })
           end,

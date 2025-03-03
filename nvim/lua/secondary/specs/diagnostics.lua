@@ -8,7 +8,7 @@ vim.diagnostic.config {
 -- trigger diagnostic hover message on cursor hold
 local diag_hover_enabled = true
 
-local function toggle_diag_hover()
+local function toggle_diag_hover(quiet)
     if diag_hover_enabled then
       vim.api.nvim_create_augroup('DiagHover', { clear = true })
       vim.api.nvim_create_autocmd('CursorHold', {
@@ -19,16 +19,22 @@ local function toggle_diag_hover()
           vim.diagnostic.open_float(nil, opts)
         end,
       })
-      print('Diagnostic hover: ON')
+
+      if not quiet then
+        print('Diagnostic hover: ON')
+      end
     else
       vim.api.nvim_clear_autocmds({ group = 'DiagHover' })
-      print('Diagnostic hover: OFF')
+
+      if not quiet then
+        print('Diagnostic hover: OFF')
+      end
     end
 
     diag_hover_enabled = not diag_hover_enabled
 end
 
-toggle_diag_hover()
+toggle_diag_hover(true)
 
 -- keymaps
 vim.keymap.set('n', '<Leader>d', toggle_diag_hover, { silent = true, desc = 'Toggle diagnostic hover' })

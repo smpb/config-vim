@@ -24,5 +24,5 @@ vim.api.nvim_set_keymap('v', '<D-x>', '"+d<CR>', { noremap = true, silent = true
 -- map <D-v> to paste from system clipboard
 vim.api.nvim_set_keymap('i', '<D-v>', [[<C-o>:lua require("core.functions").paste_in_insert_mode()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<D-v>', '"+p<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('t', '<D-v>', '"+p<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<D-v>', [[<C-\><C-n>"+pa]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<D-v>', '"+p<CR>', { noremap = true, silent = true })

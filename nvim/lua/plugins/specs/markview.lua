@@ -11,6 +11,9 @@ return {
         hybrid_modes = { 'n', 'v' },
         linewise_hybrid_mode = false,
       },
+      json = {
+        enable = false,
+      },
       markdown = {
         block_quotes = {
           wrap = false,

@@ -21,7 +21,15 @@ return {
         globalstatus = true,
       },
       sections = {
-        lualine_a = { 'mode' },
+        lualine_a = {
+          'mode',
+          {
+            function()
+              return vim.o.paste and 'PASTE' or ''
+            end,
+            color = { gui = 'bold' },
+          },
+        },
         lualine_b = { 'branch', 'diff', 'diagnosticsl' },
         lualine_c = {
           {

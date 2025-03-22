@@ -43,8 +43,15 @@ return {
           },
         },
         lualine_x = { 'encoding', 'fileformat', 'filetype' },
-        lualine_y = { 'progress' },
-        lualine_z = { 'location' }
+        lualine_y = {
+          {
+            'lsp_status',
+            symbols = {
+              separator = ' · ',
+            },
+          },
+        },
+        lualine_z = { 'progress', 'location' }
       },
       inactive_sections = {
         lualine_a = {},

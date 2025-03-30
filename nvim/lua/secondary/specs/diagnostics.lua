@@ -5,48 +5,39 @@ vim.diagnostic.config({
     severity = {
       min = vim.diagnostic.severity.WARN
     },
-    float = true,
   },
+  float = false,
   severity_sort = true,
   underline = true,
-  update_in_insert = true,
+  update_in_insert = false,
   virtual_text = false,
+  virtual_lines = {
+    current_line = true,
+  },
 })
 
--- trigger diagnostic hover message on cursor hold
-local diag_hover_enabled = true
+-- Toggle between displaying diagnostics under the current line or in virtual ones
+local function toggle_diagnostic_current_virtual()
+    local config = vim.diagnostic.config()
 
-local function toggle_diag_hover(quiet)
-    if diag_hover_enabled then
-      vim.api.nvim_create_augroup('DiagHover', { clear = true })
-      vim.api.nvim_create_autocmd('CursorHold', {
-        group = 'DiagHover',
-        pattern = '*',
-        callback = function()
-          local opts = { focusable = false, close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter', 'FocusLost' } }
-          vim.diagnostic.open_float(nil, opts)
-        end,
-      })
-
-      if not quiet then
-        print('Diagnostic hover: ON')
-      end
+    if config.virtual_lines == false then
+      config.virtual_text = false
+      config.virtual_lines = { current_line = true }
     else
-      vim.api.nvim_clear_autocmds({ group = 'DiagHover' })
-
-      if not quiet then
-        print('Diagnostic hover: OFF')
-      end
+      config.virtual_text = { current_line = true }
+      config.virtual_lines = false
     end
 
-    diag_hover_enabled = not diag_hover_enabled
+    vim.diagnostic.config(config)
 end
 
-toggle_diag_hover(true)
-
 -- keymaps
-vim.keymap.set('n', '<Leader>d', toggle_diag_hover, { silent = true, desc = 'Toggle diagnostic hover' })
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic' })
+vim.keymap.set('n', '<Leader>dt', toggle_diagnostic_current_virtual, { desc = 'Toggle diagnostic between current and virtual line' })
+vim.keymap.set('n', '[d', function()
+  vim.diagnostic.goto_prev({ float = false })
+end, { desc = 'Go to previous diagnostic' })
+vim.keymap.set('n', ']d', function()
+  vim.diagnostic.goto_next({ float = false })
+end, { desc = 'Go to next diagnostic' })
 vim.keymap.set('n', '<Leader>q', vim.diagnostic.setloclist, { desc = 'Add diagnostics to the location list' })
 vim.keymap.set('n', '<Leader>Q', vim.diagnostic.setqflist, { desc = 'Add diagnostics to the quickfix list' })

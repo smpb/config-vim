@@ -48,7 +48,7 @@ return {
           ['<C-e>'] = cmp.mapping.abort(),              -- Close completion menu
           ['<CR>'] = cmp.mapping.confirm({              -- Confirm completion
             behavior = cmp.ConfirmBehavior.Replace,
-            select = true
+            select = false
           }),
           ['<Tab>'] = cmp.mapping(function(fallback)    -- Cycle to next completion item
             if cmp.visible() then

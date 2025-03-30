@@ -110,12 +110,14 @@ nmap <C-TAB>    :tabnext<CR>
 nmap <C-S-TAB>  :tabprevious<CR>
 
 " move to the next/previous buffer
-nmap <Leader>;  :bnext<CR>
-nmap <Leader>l  :bprevious<CR>
+nmap ]b :bnext<CR>
+nmap [b :bprevious<CR>
+nmap ]B :blast<CR>
+nmap [B :brewind<CR>
 
 " move to the next buffer and close the previous one (preserves panes)
 cabbrev bc bnext \| bd #
-map <Leader>' :bc<CR>
+map \b :bc<CR>
 
 " 'very magic' mode for regular expression patterns
 " ie, regex work almost exactly like in Perl
@@ -316,8 +318,8 @@ let g:ale_completion_enabled = 1
 let g:ale_fixers = { 'go': ['goimports','gofmt'] }
 let g:ale_linters = { 'go': ['golangci-lint'] }
 
-nmap <Leader>j :ALEPreviousWrap<CR>
-nmap <Leader>k :ALENextWrap<CR>
+nmap [d :ALEPreviousWrap<CR>
+nmap ]d :ALENextWrap<CR>
 
 
 "========[ BETTER WHITESPACES SETTINGS ]========

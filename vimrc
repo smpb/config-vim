@@ -56,6 +56,9 @@ set wildmode=list:longest,full  " show list of completions:
 "  hidden - hide (but don't unload) unsaved buffers when abandoning them
 set hidden
 
+" treat '-' as a word separator in all file types
+autocmd FileType * setlocal iskeyword-=-
+
 "========[ SEARCH OPTIONS ]========
 
 set ignorecase  " ignore case in all searches...

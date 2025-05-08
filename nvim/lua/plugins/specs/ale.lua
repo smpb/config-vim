@@ -12,5 +12,7 @@ return {
           vim.b.ale_enabled = 0
       end,
     })
+
+  vim.cmd('ALEDisable')
   end
 }

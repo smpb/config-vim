@@ -39,7 +39,7 @@ set spelllang=en_us,pt_pt
 " deal with long lines
 "set formatoptions-=cro " do ':help fo-table' for details
 "set textwidth=120
-"set wrap
+set wrap
 
 " backspace allowed over autoindent,
 "  over EOL - joining lines, over the start of insert
@@ -186,6 +186,11 @@ set fillchars+=vert:\│
 " make whitespace characters visible
 set listchars=tab:\│\ ,trail:·,nbsp:~
 set list
+
+" preserve word-based wrapping visually with `list` on, and add a break character
+set breakat=\ \	;:,!?
+set showbreak=↪
+set linebreak
 
 " toggle visible whitespace characters on and off
 command ListToggle if &modifiable | if &list | set nolist | else | set list | endif | endif

@@ -41,6 +41,15 @@ return {
               },
             })
           end,
+          claude_thought = function()
+            return require('codecompanion.adapters').extend('copilot', {
+              schema = {
+                model = {
+                  default = 'claude-3.7-sonnet-thought',
+                },
+              },
+            })
+          end,
           ollama = function()
             return require('codecompanion.adapters').extend('ollama', {
               schema = {
@@ -59,7 +68,7 @@ return {
         },
         strategies = {
           chat = {
-            adapter = 'claude',
+            adapter = 'claude_thought',
             slash_commands = {
               ['file'] = {
                 opts = {

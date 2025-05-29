@@ -1,13 +1,20 @@
 return {
   'm4xshen/hardtime.nvim',
 
-  -- dependencies
+  lazy = false,
+
   dependencies = {
-    'MunifTanjim/nui.nvim',
+    'MunifTanjim/nui.nvim', -- UI component library for Neovim.
   },
 
   -- configuration
-  lazy = false,
   opts = {
+    disable_mouse = false,
+    disabled_keys = {
+      ['<Up>']    = {},
+      ['<Down>']  = {},
+      ['<Left>']  = {},
+      ['<Right>'] = {},
+    },
   }
 }

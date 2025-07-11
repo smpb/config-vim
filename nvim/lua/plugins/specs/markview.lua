@@ -4,6 +4,9 @@ return {
   -- configuration
   config = function()
     require('markview').setup({
+      experimental = {
+        check_rtp_message = false,
+      },
       preview = {
         filetypes = { 'codecompanion', 'helm', 'markdown', 'yaml' },
         ignore_buftypes = {},

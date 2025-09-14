@@ -29,4 +29,4 @@ To activate:
 
     cd
     ln -s ./path/to/config-vim/nvim ~/.config/
-
+    nvim --headless +Lazy! sync +qa

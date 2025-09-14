@@ -29,42 +29,44 @@ return {
 
       require('codecompanion').setup({
         adapters = {
-          opts = {
-            show_defaults = false,
-          },
-          claude = function()
-            return require('codecompanion.adapters').extend('copilot', {
-              schema = {
-                model = {
-                  default = 'claude-sonnet-4',
+          http = {
+            opts = {
+              show_defaults = false,
+            },
+            claude = function()
+              return require('codecompanion.adapters').extend('copilot', {
+                schema = {
+                  model = {
+                    default = 'claude-sonnet-4',
+                  },
                 },
-              },
-            })
-          end,
-          claude_thought = function()
-            return require('codecompanion.adapters').extend('copilot', {
-              schema = {
-                model = {
-                  default = 'claude-sonnet-4',
+              })
+            end,
+            claude_thought = function()
+              return require('codecompanion.adapters').extend('copilot', {
+                schema = {
+                  model = {
+                    default = 'claude-sonnet-4',
+                  },
                 },
-              },
-            })
-          end,
-          ollama = function()
-            return require('codecompanion.adapters').extend('ollama', {
-              schema = {
-                model = {
-                  default = 'gpt-oss:latest',
+              })
+            end,
+            ollama = function()
+              return require('codecompanion.adapters').extend('ollama', {
+                schema = {
+                  model = {
+                    default = 'gpt-oss:latest',
+                  },
+                  num_ctx = {
+                    default = 16384,
+                  },
                 },
-                num_ctx = {
-                  default = 16384,
+                env = {
+                  url = ollama_scheme .. '://' .. ollama_host,
                 },
-              },
-              env = {
-                url = ollama_scheme .. '://' .. ollama_host,
-              },
-            })
-          end,
+              })
+            end,
+          }
         },
         strategies = {
           chat = {

@@ -36,7 +36,7 @@ return {
             return require('codecompanion.adapters').extend('copilot', {
               schema = {
                 model = {
-                  default = 'claude-3.7-sonnet',
+                  default = 'claude-sonnet-4',
                 },
               },
             })
@@ -45,7 +45,7 @@ return {
             return require('codecompanion.adapters').extend('copilot', {
               schema = {
                 model = {
-                  default = 'claude-3.7-sonnet-thought',
+                  default = 'claude-sonnet-4',
                 },
               },
             })
@@ -54,7 +54,7 @@ return {
             return require('codecompanion.adapters').extend('ollama', {
               schema = {
                 model = {
-                  default = 'qwen2.5-coder:14b',
+                  default = 'gpt-oss:latest',
                 },
                 num_ctx = {
                   default = 16384,

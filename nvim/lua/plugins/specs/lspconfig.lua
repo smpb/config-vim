@@ -41,8 +41,6 @@ return {
 
     -- configuration
     config = function()
-      local lspconfig = require('lspconfig')
-
       -- keymaps
       local keymaps = function(_, bufnr)
         local attach_opts = { silent = true, buffer = bufnr }
@@ -81,7 +79,7 @@ return {
               capabilities = capabilities,
             }, tool.config or {})
 
-            lspconfig[tool.name].setup(config)
+            vim.lsp.config[tool.name] = config
           end
         end
       end

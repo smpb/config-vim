@@ -10,10 +10,10 @@ vim.diagnostic.config({
   severity_sort = true,
   underline = true,
   update_in_insert = false,
-  virtual_text = false,
-  virtual_lines = {
+  virtual_text = {
     current_line = true,
   },
+  virtual_lines = false,
 })
 
 -- Toggle between displaying diagnostics under the current line or in virtual ones

@@ -221,7 +221,7 @@ if has("gui_running")
   "set guioptions-=r  "remove all scroll bars
   "set guioptions-=b  "remove all scroll bars
 
-  set guifont=JetBrainsMonoNL_Nerd_Font_Mono:h14
+  set guifont=Maple\ Mono\ NF\ ExtraLight:h14
 else
   " fix truecolor support inside tmux
   "  - https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6

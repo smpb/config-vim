@@ -8,7 +8,6 @@ return {
     lint.linters_by_ft = {
       dockerfile = { 'hadolint' },
       go         = { 'golangcilint' },
-      markdown   = { 'vale' },
       php        = { 'php' },
       yaml       = { 'yamllint' },
       zsh        = { 'zsh' },

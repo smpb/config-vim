@@ -12,9 +12,5 @@ return {
         autojump = true
       }
     })
-
-    -- keymaps
-    vim.keymap.set('n', '<Leader>.', '<CMD>AerialToggle<CR>')
-    vim.keymap.set('n', '<Leader>>', '<CMD>AerialNavToggle<CR>')
   end
 }

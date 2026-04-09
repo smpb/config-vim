@@ -46,7 +46,21 @@ return {
               return require('codecompanion.adapters').extend('copilot', {
                 schema = {
                   model = {
-                    default = 'claude-opus-4.6',
+                    default = 'claude-sonnet-4.6',
+                    choices = {
+                      'claude-sonnet-4.6',
+                      'claude-opus-4.6',
+                    },
+                  },
+                  ['thinking.type'] = {
+                    default = 'adaptive',
+                    mapping = 'parameters',
+                    type = 'string',
+                  },
+                  ['thinking.effort'] = {
+                    default = 'medium',
+                    mapping = 'parameters',
+                    type = 'string',
                   },
                 },
               })
@@ -68,7 +82,7 @@ return {
             end,
           }
         },
-        strategies = {
+        interactions = {
           chat = {
             adapter = 'claude_thought',
             slash_commands = {
@@ -85,9 +99,10 @@ return {
                 },
               },
             },
-            variables = {
-              ["buffer"] = {
+            editor_context = {
+              ['buffer'] = {
                 opts = {
+                  -- Always sync the buffer by sharing its "diff"
                   default_params = "diff",
                 },
               },

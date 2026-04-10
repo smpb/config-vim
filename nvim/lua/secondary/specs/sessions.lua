@@ -1,41 +1,54 @@
 -- Session loading
 
+local function get_cwd_sessions()
+  return vim.fn.glob(vim.fn.getcwd() .. "/*.vim", false, true)
+end
+
+local function pick_session_or_files()
+  local fzf = require("fzf-lua")
+  local sessions = get_cwd_sessions()
+
+  if #sessions > 0 then
+    -- optional: sort by most recent
+    table.sort(sessions, function(a, b)
+      return vim.fn.getftime(a) > vim.fn.getftime(b)
+    end)
+
+    local selected = false
+
+    fzf.fzf_exec(sessions, {
+      prompt = "Sessions> ",
+      actions = {
+        ["default"] = function(sel)
+          if not sel or #sel == 0 then return end
+          selected = true
+          vim.cmd("source " .. vim.fn.fnameescape(sel[1]))
+        end,
+      },
+      winopts = {
+        on_close = function()
+          vim.defer_fn(function()
+            if not selected then
+              require("fzf-lua").files()
+            end
+          end, 50)
+        end,
+      },
+    })
+  else
+    fzf.files()
+  end
+end
+
 vim.api.nvim_create_autocmd('VimEnter', {
   pattern = '*',
   callback = function()
-    if vim.fn.argc() == 0 then
-      local cwd = vim.fn.getcwd()
-      local files = vim.fn.glob(cwd .. '/*.vim', false, true)
-
-      if #files == 0 then
-        return
-      elseif #files == 1 then
-        -- One file: load it, but defer to ensure all initialization is complete
-        vim.defer_fn(function()
-          vim.cmd('source ' .. files[1])
-        end, 0)
-      else
-        -- Multiple files: show menu and defer loading of selected session
-        vim.defer_fn(function()
-          local display_names = {}
-
-          -- Convert full paths to relative names for display
-          for _, file in ipairs(files) do
-            display_names[file] = vim.fn.fnamemodify(file, ':t')
-          end
-
-          vim.ui.select(files, {
-            prompt = 'Select session to load:',
-            format_item = function(item)
-              return display_names[item]
-            end
-          }, function(choice)
-            if choice then
-              vim.cmd('source ' .. choice)
-            end
-          end)
-        end, 0)
-      end
+    if vim.fn.argc() == 0
+      and vim.bo.buftype == ""
+    then
+      vim.defer_fn(function()
+        pick_session_or_files()
+      end, 50)
     end
   end,
   once = true  -- Run only once during startup

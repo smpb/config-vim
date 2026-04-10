@@ -51,7 +51,7 @@ return {
         vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, attach_opts)
         vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, attach_opts)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, attach_opts)
-        vim.keymap.set('n', 'sr', require('telescope.builtin').lsp_references, attach_opts)
+        vim.keymap.set('n', 'sr', require('fzf-lua').lsp_references, attach_opts)
       end
 
       -- blink.cmp calls 'vim.lsp.protocol.make_client_capabilities()'

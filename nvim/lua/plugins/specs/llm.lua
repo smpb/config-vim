@@ -88,13 +88,13 @@ return {
             slash_commands = {
               ['file'] = {
                 opts = {
-                  provider = 'telescope',
+                  provider = 'fzf_lua',
                   contains_code = true,
                 },
               },
               ['symbols'] = {
                 opts = {
-                  provider = 'telescope',
+                  provider = 'fzf_lua',
                   contains_code = true,
                 },
               },
@@ -114,7 +114,7 @@ return {
         },
         display = {
           action_palette = {
-            provider = 'telescope',
+            provider = 'fzf_lua',
             opts = {
               show_default_actions = true,
               show_default_prompt_library = true,

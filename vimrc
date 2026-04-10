@@ -18,6 +18,9 @@ set updatetime=500            " save to swap faster, helping plugins tracking ch
 set visualbell
 set noerrorbells
 
+" don't show the intro message
+set shortmess+=I
+
 " look of the windows
 set showmode
 set showcmd

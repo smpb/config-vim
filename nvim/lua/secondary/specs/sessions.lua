@@ -8,6 +8,15 @@ local function pick_session_or_files()
   local fzf = require("fzf-lua")
   local sessions = get_cwd_sessions()
 
+  local function open_files()
+    local is_git = vim.fn.systemlist("git rev-parse --is-inside-work-tree 2>/dev/null")[1]
+    if is_git == "true" then
+      fzf.git_files({ show_untracked = true })
+    else
+      fzf.files()
+    end
+  end
+
   if #sessions > 0 then
     -- optional: sort by most recent
     table.sort(sessions, function(a, b)
@@ -29,14 +38,14 @@ local function pick_session_or_files()
         on_close = function()
           vim.defer_fn(function()
             if not selected then
-              require("fzf-lua").files()
+              open_files()
             end
           end, 50)
         end,
       },
     })
   else
-    fzf.files()
+    open_files()
   end
 end
 

@@ -18,10 +18,6 @@ return {
     -- load fzf-native extension
     tlscp.load_extension('fzf')
 
-    -- load aerial extension
-    tlscp.load_extension('aerial')
-    vim.keymap.set('n', '<Leader>fs', tlscp.extensions.aerial.aerial, {})
-
     -- keymaps: find
     vim.keymap.set('n', '<Leader>:',  '<CMD>Telescope command_history<CR>', {})
     vim.keymap.set('n', '<Leader>/',  '<CMD>Telescope live_grep grep_open_files=true<CR>', {})

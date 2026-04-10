@@ -52,8 +52,12 @@ end
 vim.api.nvim_create_autocmd('VimEnter', {
   pattern = '*',
   callback = function()
+    local cwd = vim.fn.getcwd()
+    local home = vim.fn.expand("~")
+
     if vim.fn.argc() == 0
       and vim.bo.buftype == ""
+      and vim.startswith(cwd, home .. "/")
     then
       vim.defer_fn(function()
         pick_session_or_files()
